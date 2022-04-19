@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add 
+            id="TorinoMotors_Refacciones::refaccionesbackend"
+            title="Refacciones Admin"
+            module="TorinoMotors_Refacciones"
+            sortOrder="50"
+            parent="Magento_Backend::marketing"
+            resource="TorinoMotors_Refacciones::refaccionesbackend"
+        />
+        <add 
+            id="TorinoMotors_Refacciones::index"
+            title="Refacciones Admin Index"
+            module="TorinoMotors_Refacciones"
+            sortOrder="51"
+            parent="TorinoMotors_Refacciones::refaccionesbackend"
+            action="refaccionesadmin/index/"
+            resource="TorinoMotors_Refacciones::index"
+        />
+        <add
+            id="TorinoMotors_Refacciones::suscription"
+            title="Refaciones Admin Suscription"
+            module="TorinoMotors_Refacciones"
+            sortOrder="52"
+            parent="TorinoMotors_Refacciones::refaccionesbackend"
+            action="refaccionesadmin/suscription/"
+            resource="TorinoMotors_Refacciones::suscription"
+        />
+    </menu>
+</config>

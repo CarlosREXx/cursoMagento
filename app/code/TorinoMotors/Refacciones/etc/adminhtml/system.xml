@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="refaccionestab" translate="label" sortOrder="80">
+            <label>Refacciones Tab</label>
+        </tab>
+        <section id="motorssection" translate="label" type="text" sortOrder="300" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Refacciones Section</label>
+            <tab>refaccionestab</tab>
+            <resource>TorinoMotors_Refacciones::config_motors</resource>
+            <group id="motorsgroup" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Config Page Group</label>
+                <field id="enable" translate="label" sortOrder="10" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Is Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="title" translate="label" sortOrder="11" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Title Motors</label>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
