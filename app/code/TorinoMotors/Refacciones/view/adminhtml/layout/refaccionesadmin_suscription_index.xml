@@ -3,9 +3,9 @@
     <update handle="styles"/>
     <body>
         <referenceContainer name="content">
-            <!-- <block class="TorinoMotors\Refacciones\Block\Adminhtml\Suscription" name="adminhtml.block.refacciones.suscription.container">
-            </block>     -->
-                <block class="TorinoMotors\Refacciones\Block\Adminhtml\Suscription" name="adminhtml.block.refacciones.suscription.grid" />
+            <block class="TorinoMotors\Refacciones\Block\Adminhtml\Suscription" name="refacciones_suscription_grid">
+                <block class="TorinoMotors\Refacciones\Block\Adminhtml\Suscription\Grid" name="adminhtml.block.refacciones.suscription.grid" />
+            </block>    
         </referenceContainer>
     </body>
 </page>

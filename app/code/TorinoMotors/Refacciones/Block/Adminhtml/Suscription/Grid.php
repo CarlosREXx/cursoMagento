@@ -3,6 +3,7 @@
 namespace TorinoMotors\Refacciones\Block\Adminhtml\Suscription;
 
 use Magento\Backend\Block\Widget\Grid as WidgetGrid;
+use TorinoMotors\Refacciones\Model\ResourceModel\Suscription\Collection;
 
 class Grid extends \Magento\Backend\Block\Widget\Grid\Extended
 {
@@ -22,10 +23,11 @@ class Grid extends \Magento\Backend\Block\Widget\Grid\Extended
       public function __construct(
         \Magento\Backend\Block\Template\Context $context,
         \Magento\Backend\Helper\Data $backendHelper,
-        // \TorinoMotors\Refacciones\Model\ResourceModel\Suscription\Collection $suscriptionCollection,
+        Collection $suscriptionCollection,
+        //\TorinoMotors\Refacciones\Model\ResourceModel\Suscription\Collection  $suscriptionCollection,
         array $data = []
       ){
-        //   $this->_suscriptionCollection = $suscriptionCollection;
+          //$this->_suscriptionCollection = $suscriptionCollection;
           parent::__construct($context, $backendHelper, $data);
           $this->setEmptyText(__("No Subscription Found"));
       }
