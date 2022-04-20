@@ -1,6 +1,6 @@
 <?php
 
-namespace TorimoMotors\Refacciones\Model;
+namespace TorinoMotors\Refacciones\Model;
 
 class Suscription extends \Magento\Framework\Model\AbstractModel
 {

@@ -23,11 +23,10 @@ class Grid extends \Magento\Backend\Block\Widget\Grid\Extended
       public function __construct(
         \Magento\Backend\Block\Template\Context $context,
         \Magento\Backend\Helper\Data $backendHelper,
-        Collection $suscriptionCollection,
-        //\TorinoMotors\Refacciones\Model\ResourceModel\Suscription\Collection  $suscriptionCollection,
+        \TorinoMotors\Refacciones\Model\ResourceModel\Suscription\Collection  $suscriptionCollection,
         array $data = []
       ){
-          //$this->_suscriptionCollection = $suscriptionCollection;
+          $this->_suscriptionCollection = $suscriptionCollection;
           parent::__construct($context, $backendHelper, $data);
           $this->setEmptyText(__("No Subscription Found"));
       }
@@ -38,9 +37,19 @@ class Grid extends \Magento\Backend\Block\Widget\Grid\Extended
        * @return WidgetGrid
        */
 
-    //    protected function _prepareCollection(){
-    //        $this->setCollection($this->_suscriptionCollection);
-    //        return parent::_prepareCollection();
-    //    }
+       protected function _prepareCollection(){
+           $this->setCollection($this->_suscriptionCollection);
+           return parent::_prepareCollection();
+       }
+
+       protected function _prepareColumns()
+       {
+          $this->addColumn(
+            "suscription_id",
+            [
+              "header" => __("ID")
+            ]
+          )
+       }
 
 }

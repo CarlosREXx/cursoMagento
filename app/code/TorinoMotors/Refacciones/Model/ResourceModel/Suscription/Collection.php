@@ -6,7 +6,6 @@ class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\Ab
 {
     protected function _construct()
     {
-        parent::_construct();
         $this->_init(
             'TorinoMotors\Refacciones\Model\Suscription', 
             'TorinoMotors\Refacciones\Model\ResourceModel\Suscription'
