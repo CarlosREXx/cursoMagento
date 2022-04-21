@@ -47,9 +47,60 @@ class Grid extends \Magento\Backend\Block\Widget\Grid\Extended
           $this->addColumn(
             "suscription_id",
             [
-              "header" => __("ID")
+              "header" => __("ID"),
+              "index" => "suscription_id",
             ]
-          )
+            );
+          $this->addColumn(
+            "firstname",
+            [
+              "header" => __("FIRSTNAME"),
+              "index" => "firstname",
+            ]
+            );
+          $this->addColumn(
+            "lastname",
+            [
+              "header" => __("LASTNAME"),
+              "index" => "lastname",
+            ]
+            );
+          $this->addColumn(
+            "email",
+            [
+              "header" => __("EMAIL"),
+              "index" => "email",
+            ]
+            );
+          $this->addColumn(
+            "status",
+            [
+              "header" => __("Status"),
+              "index" => "status",
+              "frame_callback" => [$this, "decorateStatus"]
+            ]
+            );
+          
+            return $this;
+       }
+
+       public function decorateStatus($value)
+       {
+          $class = "";
+          switch($value)
+          {
+            case "pending":
+              $class = "grid-severity-minor";
+              break;
+            case "approved":
+              $class = "grid-severity-noltice";
+              break;
+            case "declined":
+            default:
+              $class = "grid-severity-critical";
+              break;
+          }
+          return "<span class='".$class."'><span>".$value."</span></span>";
        }
 
 }
