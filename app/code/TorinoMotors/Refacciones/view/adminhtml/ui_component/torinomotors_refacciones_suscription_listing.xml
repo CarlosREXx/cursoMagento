@@ -23,7 +23,7 @@
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="component" xsi:type="string">Magento_Ui/js/grid/provider</item>
-                    <item name="update_url" xsi:type="url" path="nui/index/render" />
+                    <item name="update_url" xsi:type="url" path="mui/index/render" />
                     <item name="storageConfig" xsi:type="array">
                         <item name="indexField" xsi:type="string">suscription_id</item>
                     </item>
@@ -45,11 +45,11 @@
             </filterSelect>
         </filters>
         <paging name="listing_paging" />
-        <massaction>
+        <massaction name="listing_massaction">
             <argument name="data" xsi:type="array">
                 <item name="data" xsi:type="array">
                     <item name="selectProvider" xsi:type="string">torinomotors_refacciones_suscription_listing.torinomotors_refacciones_suscription_listing.spinner_columns.ids</item>
-                    <item name="displayArea" xsi:type="string">botton</item>
+                    <item name="displayArea" xsi:type="string">bottom</item>
                     <item name="indexField" xsi:type="string">suscription_id</item>
                 </item>
             </argument>
@@ -76,7 +76,7 @@
                 </item>
             </argument>
         </selectionsColumn>
-        <column name="suscription">
+        <column name="suscription_id">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">text</item>
@@ -145,7 +145,7 @@
         <actionsColumn name="actions" class="TorinoMotors\Refacciones\Ui\Component\Listing\Column\SuscriptionActions">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <item name="resizeEnable" xsi:type="boolean">false</item>
+                    <item name="resizeEnabled" xsi:type="boolean">false</item>
                     <item name="resizeDefaultWidth" xsi:type="string">107</item>
                     <item name="indexField" xsi:type="string">suscription_id</item>
                     <item name="sortOrder" xsi:type="number">180</item>

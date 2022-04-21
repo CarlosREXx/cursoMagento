@@ -3,11 +3,11 @@
     <update handle="styles"/>
     <body>
         <referenceContainer name="content">
-            <block class="TorinoMotors\Refacciones\Block\Adminhtml\Suscription" name="refacciones_suscription_grid">
+            <!-- <block class="TorinoMotors\Refacciones\Block\Adminhtml\Suscription" name="refacciones_suscription_grid">
                 <block class="TorinoMotors\Refacciones\Block\Adminhtml\Suscription\Grid" name="adminhtml.block.refacciones.suscription.grid" />
-            </block>    
+            </block>     -->
 
-            <!-- <uiComponent name="torinomotors_refacciones_suscription_listing" /> -->
+            <uiComponent name="torinomotors_refacciones_suscription_listing" />
         </referenceContainer>
     </body>
 </page>
