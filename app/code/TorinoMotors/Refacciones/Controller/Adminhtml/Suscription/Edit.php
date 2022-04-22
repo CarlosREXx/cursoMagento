@@ -3,7 +3,7 @@
 namespace TorinoMotors\Refacciones\Controller\Adminhtml\Suscription;
 
 use Magento\Backend\App\Action\Context;
-use Megento\Framework\View\Result\PageFactory;
+use Magento\Framework\View\Result\PageFactory;
 
 class Edit extends \Magento\Backend\App\Action
 {
@@ -19,7 +19,7 @@ class Edit extends \Magento\Backend\App\Action
         PageFactory $resultPageFactory
     ){
         parent::__construct($context);
-        $this->resultFactory = $resultPageFactory;
+        $this->resultPageFactory = $resultPageFactory;
     }
 
     /**
@@ -28,7 +28,8 @@ class Edit extends \Magento\Backend\App\Action
 
      public function execute()
      {
-         $resultPage = $this->resultFactory->create();
+         $resultPage = $this->resultPageFactory->create();
          $resultPage->getConfig()->getTitle()->prepend(__("Editar Registro"));
+         return $resultPage;
      }
 }
