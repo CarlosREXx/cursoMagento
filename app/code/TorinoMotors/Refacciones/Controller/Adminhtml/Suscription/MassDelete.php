@@ -28,11 +28,9 @@ class MassDelete extends Action
         try {
             $collection = $this->filter->getCollection($this->collectionFactory->create());
             $collectionSize = $collection->getSize();
-            $count = 0;
             foreach($collection as $model){
                 //$deleteItem = $this->_ObjectManager->get("TorinoMotors\Refacciones\Model\Suscription")->load($model->getId());
                 $model->delete();
-                $count++;
             }
     
             $this->messageManager->addSuccessMessage(__("Un total de $collectionSize Subscription(s) se han eliminado"));
