@@ -15,7 +15,7 @@
             <item name="back" xsi:type="string">TorinoMotors\Refacciones\Block\Adminhtml\Suscription\Edit\Button\Back</item>
             <item name="save" xsi:type="string">TorinoMotors\Refacciones\Block\Adminhtml\Suscription\Edit\Button\Save</item>
         </item>
-        <item name="template" xsi:type="string">templates\form\collapsible</item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
     </argument>
     <dataSource name="uiexample_form_data_source">
         <argument name="dataProvider" xsi:type="configurableObject">
@@ -31,7 +31,7 @@
         </argument>
         <argument name="data" xsi:type="array">
             <item name="js_config" xsi:type="array">
-                <item name="component" xsi:type="string">Magento_Ui\js\form\provider</item>
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
             </item>
         </argument>
     </dataSource>
