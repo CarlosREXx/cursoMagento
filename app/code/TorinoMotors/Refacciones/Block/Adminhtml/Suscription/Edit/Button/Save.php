@@ -75,7 +75,11 @@ class Save extends Generic implements ButtonProviderInterface
                             [
                                 "targetName" => "refacciones_form.refacciones_form",
                                 "actionName" => "save",
-                                "params" => [true],
+                                "params" => [
+                                    true, [
+                                        "back" => "addClose",
+                                    ]
+                                ],
                             ],
                         ],
                     ],
