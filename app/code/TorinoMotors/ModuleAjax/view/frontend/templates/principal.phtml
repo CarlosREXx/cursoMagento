@@ -1,0 +1,42 @@
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <form name="form_height" id="form_height">
+                    <select name="Numero" id="selectNum">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                    </select>
+                </div> 
+            </form>
+        </div>
+    </div>
+
+<script>
+require(['jquery'],function(){
+    jQuery(document).ready(function() {
+        jQuery("#selectNum").on("change", function(){
+
+            // var heightValue = jQuery("input[name='height']").val();
+            // var weightValue = jQuery("input[name='weight']").val();
+
+            var num = jQuery("select[name='Numero']").val();
+
+            var url = "<?php echo $block->getBaseUrl().'ajaxrequest/result/result/' ?>";
+            jQuery.ajax({
+            url: url,
+            type: "POST",
+            data: {numero:num},
+            showLoader: true,
+            cache: false,
+            success: function(response){
+                console.log(response.output);
+            }
+        });
+        return false;
+        });
+    });
+});
+</script>
