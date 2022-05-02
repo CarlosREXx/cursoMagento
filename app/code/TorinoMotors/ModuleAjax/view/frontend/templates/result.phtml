@@ -4,6 +4,6 @@
     // $w = $block->getWeightData();
 
     // echo $total = (int)$h + (int)$w;
-
-    echo $block->getNumeroData();
+    $array =  array($block->getNumeroData(), $block->getServiceApi());
+    print_r(json_encode($array));
 ?>
