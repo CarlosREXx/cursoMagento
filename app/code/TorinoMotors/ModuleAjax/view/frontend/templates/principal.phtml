@@ -20,53 +20,9 @@
     </div>
 
 <script type="text/x-magento-init">
-// require(['jquery'],function(){
-//     jQuery(document).ready(function() {
-//         jQuery("#selectNum").on("change", function(){
-
-//             // var heightValue = jQuery("input[name='height']").val();
-//             // var weightValue = jQuery("input[name='weight']").val();
-
-//             var num = jQuery("select[name='Numero']").val();
-
-// //             var url = "<?php //echo $block->getBaseUrl().'ajaxrequest/result/result/' ?>";
-//             jQuery.ajax({
-//             url: url,
-//             type: "POST",
-//             data: {numero:num},
-//             showLoader: true,
-//             cache: false,
-//             success: function(request){
-//                 var arr = JSON.parse(request.output);
-//                 jQuery("#selectMarca").empty();
-//                 var select = document.getElementById("selectMarca");
-//                 JSON.parse(arr[1]).forEach((element, index, array) => {
-//                     if(index == 0){
-//                         var unique = document.createElement("option");
-//                         unique.setAttribute("disabled", "disabled");
-//                         unique.setAttribute("selected", "true");
-//                         unique.textContent = "Marca";
-//                         select.appendChild(unique);
-//                     }
-//                     var i = document.createElement("option");
-//                     i.setAttribute("value", element["Nombre"]);
-//                     i.textContent = element["Nombre"];
-//                     select.appendChild(i);
-//                 });
-//                 //console.log(JSON.parse(arr[1])[0]['Nombre']);
-//             }
-//         });
-//         return false;
-//         });
-//     });
-// });
-//<![CDATA[
-    require([
-        'jquery',
-        'serviceApi'
-    ], function ($, script) {
-        //Your code here
-        //alert('Here');
-    });
-    // ]]>
+{
+    "body": {
+            "principal":{}
+        }
+}
 </script>

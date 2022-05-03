@@ -1,7 +1,12 @@
 define([
     'jquery',
-], function($) {
+    'mage/url',
+    'domReady!'
+], function($, urlBuilder) {
     'use strict';
+
+    urlBuilder.setBaseUrl(BASE_URL);
+    var ws = urlBuilder.build('ajaxrequest/result/result');
     $(document).ready(function() {
         $("#selectNum").on("change", function(){
 
@@ -10,7 +15,7 @@ define([
 
             var num = $("select[name='Numero']").val();
 
-            var url = "http://curso.net/ajaxrequest/index/index";
+            var url = ws;
             $.ajax({
             url: url,
             type: "POST",
@@ -35,9 +40,10 @@ define([
                     select.appendChild(i);
                 });
                 //console.log(JSON.parse(arr[1])[0]['Nombre']);
+                //console.log(arr);
             }
         });
         return false;
         });
     });
-}(jQuery));
+});
