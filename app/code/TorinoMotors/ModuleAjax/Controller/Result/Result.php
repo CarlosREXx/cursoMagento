@@ -6,6 +6,7 @@ use Magento\Framework\App\Action\Action;
 use Magento\Framework\App\Action\Context;
 use Magento\Framework\View\Result\PageFactory;
 use Magento\Framework\Controller\Result\JsonFactory;
+use TorinoMotors\ModuleAjax\Service\jServiceAPI;
 
 class Result extends Action
 {
@@ -23,8 +24,10 @@ class Result extends Action
     public function __construct(
         Context $context,
         PageFactory $resultPageFactory,
-        JsonFactory $resultJsonFactory
+        JsonFactory $resultJsonFactory,
+        jServiceAPI $jServiceAPI
     ){
+        $this->_jServiceApi = $jServiceAPI;
         $this->resultPageFactory = $resultPageFactory;
         $this->resultJsonFactory = $resultJsonFactory;
         parent::__construct($context);
@@ -34,18 +37,19 @@ class Result extends Action
     {
         // $height = $this->getRequest()->getParam('height');
         // $weight = $this->getRequest()->getParam('weight');
-        $numero = $this->getRequest()->getParam('numero');
         $result = $this->resultJsonFactory->create();
-        $resultPage = $this->resultPageFactory->create();
-
-        $block = $resultPage->getLayout()
-                ->createBlock('TorinoMotors\ModuleAjax\Block\Index')
-                ->setTemplate('TorinoMotors_ModuleAjax::result.phtml')
-                ->setData("numero", $numero)
-                ->toHtml();
+        $numero = $this->getRequest()->getParam('numero');
+        //$resultPage = $this->resultPageFactory->create();
+        $array = Array("numero" => $numero,
+                    "data" => $this->_jServiceApi->execute());
+        // $block = $resultPage->getLayout()
+        //         ->createBlock('TorinoMotors\ModuleAjax\Block\Index')
+        //         ->setTemplate('TorinoMotors_ModuleAjax::result.phtml')
+        //         ->setData("numero", $numero)
+        //         ->toHtml();
                 //->setData("weight", $weight)
 
-        $result->setData(['output' => $block]);
+        $result->setData($array);
         return $result;
     }
 }

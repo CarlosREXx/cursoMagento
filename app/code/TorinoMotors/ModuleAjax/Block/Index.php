@@ -22,24 +22,4 @@ class Index extends Template
     {
         return $this->_storeManager->getStore()->getBaseUrl();
     }
-
-//     public function getHeightData()
-//     {
-//         return $this->getHeight();
-//     }
-
-//     public function getWeightData()
-//     {
-//         return $this->getWeight();
-//     }
-
-    public function getNumeroData()
-    {
-        return $this->getNumero();
-    }
-
-    public function getServiceApi()
-    {
-        return $this->_jServiceAPI->execute();
-    }
 }
