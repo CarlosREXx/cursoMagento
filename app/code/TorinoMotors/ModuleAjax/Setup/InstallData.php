@@ -1,6 +1,6 @@
 <?php
 
-namespace Mageplaza\HelloWorld\Setup;
+namespace TorinoMotors\ModuleAjax\Setup;
 
 use Magento\Framework\Setup\InstallDataInterface;
 use Magento\Framework\Setup\ModuleDataSetupInterface;
@@ -21,10 +21,10 @@ class InstallData implements InstallDataInterface
         foreach ($data as $row => $value) {
             $bind = [
                 "marca_name" => $value["Nombre"],
-                "presencia" => "Puebla"
+                "presencia_en" => "Puebla"
             ];
             $setup->getConnection()->insert(
-                $setup->getTable('torinmotors_presenciaen'),
+                $setup->getTable('torinomotors_presenciaen'),
                 $bind
             );
         }

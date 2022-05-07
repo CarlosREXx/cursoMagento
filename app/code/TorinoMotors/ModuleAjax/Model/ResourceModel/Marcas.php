@@ -2,6 +2,7 @@
 
 namespace TorinoMotors\ModuleAjax\Model\ResourceModel;
 
+
 class Marcas extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
 {
     public function __construct(
@@ -11,6 +12,6 @@ class Marcas extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
     }
     protected function _construct()
     {
-        $this->_init("torinmotors_presenciaen", "marca_id");
+        $this->_init("torinomotors_presenciaen", "marca_id");
     }
 }

@@ -54,7 +54,7 @@ class jServiceAPI
         $status = $response->getStatusCode(); // 200 status code
         $responseBody = $response->getBody();
         $responseContent = $responseBody->getContents(); // here you will have the API response in JSON format
-        return !($flag) ? json_decode($responseContent, JSON_OBJECT_AS_ARRAY) : json_decode($responseContent);
+        return ($flag) ? json_decode($responseContent, JSON_OBJECT_AS_ARRAY) : json_decode($responseContent);
     }
 
     private function doRequest(
