@@ -22,11 +22,17 @@ define([
             success: function(data){
                 $("#selectMarca").empty().html("<option disabled='disabled' selected='true'>Marca</option>");
                 var select = document.getElementById("selectMarca");
-                JSON.parse(data["data"]).forEach((element) => {
+                data["data"].forEach((element) => {
                     var i = document.createElement("option");
                     i.setAttribute("value", element["Nombre"]);
                     i.textContent = element["Nombre"];
                     select.appendChild(i);
+                });
+                data["Table"].forEach(element =>{
+                    JSON.parse(element["presencia"]).forEach(e => {
+                        if(element["marca_name"] == "BMW")
+                            console.log(e);
+                    });
                 });
             }
         });

@@ -6,6 +6,7 @@ use Magento\Framework\App\Action\Action;
 use Magento\Framework\App\Action\Context;
 use Magento\Framework\View\Result\PageFactory;
 use Magento\Framework\Controller\Result\JsonFactory;
+use Magento\Framework\App\ResourceConnection;
 use TorinoMotors\ModuleAjax\Service\jServiceAPI;
 
 class Result extends Action
@@ -25,9 +26,11 @@ class Result extends Action
         Context $context,
         PageFactory $resultPageFactory,
         JsonFactory $resultJsonFactory,
-        jServiceAPI $jServiceAPI
+        jServiceAPI $jServiceAPI,
+        ResourceConnection $resource
     ){
         $this->_jServiceApi = $jServiceAPI;
+        $this->_resource = $resource;
         $this->resultPageFactory = $resultPageFactory;
         $this->resultJsonFactory = $resultJsonFactory;
         parent::__construct($context);
@@ -41,9 +44,21 @@ class Result extends Action
         $result = $this->resultJsonFactory->create();
         $numero = $this->getRequest()->getParam('numero');
         $array = Array("numero" => $numero,
-                    "data" => $this->_jServiceApi->execute());
+                    "data" => $this->_jServiceApi->execute(),
+                    "Table" => $this->getTableData());
 
         $result->setData($array);
+        return $result;
+    }
+
+    public function getTableData()
+    {
+        $connection = $this->_resource->getConnection();
+        $myTable = $connection->getTableName('torinomotors_presenciaen');
+        $sql     = $connection->select()->from(
+            ["tn" => $myTable]
+        ); 
+        $result  = $connection->fetchAll($sql);
         return $result;
     }
 }
