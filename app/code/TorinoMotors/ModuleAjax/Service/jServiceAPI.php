@@ -48,13 +48,13 @@ class jServiceAPI
     /**
      * Fetch some data from API
      */
-    public function execute()
+    public function execute($flag = false)
     {
         $response = $this->doRequest(static::API_REQUEST_ENDPOINT);
         $status = $response->getStatusCode(); // 200 status code
         $responseBody = $response->getBody();
         $responseContent = $responseBody->getContents(); // here you will have the API response in JSON format
-        return $responseContent;
+        return !($flag) ? json_decode($responseContent, JSON_OBJECT_AS_ARRAY) : json_decode($responseContent);
     }
 
     private function doRequest(

@@ -34,20 +34,14 @@ class Result extends Action
     } 
 
     public function execute()
-    {
-        // $height = $this->getRequest()->getParam('height');
-        // $weight = $this->getRequest()->getParam('weight');
+    {   
+        /**
+         * @return Array
+         */
         $result = $this->resultJsonFactory->create();
         $numero = $this->getRequest()->getParam('numero');
-        //$resultPage = $this->resultPageFactory->create();
         $array = Array("numero" => $numero,
                     "data" => $this->_jServiceApi->execute());
-        // $block = $resultPage->getLayout()
-        //         ->createBlock('TorinoMotors\ModuleAjax\Block\Index')
-        //         ->setTemplate('TorinoMotors_ModuleAjax::result.phtml')
-        //         ->setData("numero", $numero)
-        //         ->toHtml();
-                //->setData("weight", $weight)
 
         $result->setData($array);
         return $result;
