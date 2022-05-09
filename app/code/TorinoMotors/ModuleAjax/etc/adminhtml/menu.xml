@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>   
+        <add 
+            id="TorinoMotors_ModuleAjax::automotriz" 
+            title="Automotriz" 
+            module="TorinoMotors_ModuleAjax" 
+            sortOrder="51" 
+            resource="TorinoMotors_ModuleAjax::automotriz"
+        />
+        <add 
+            id="TorinoMotors_ModuleAjax::presenciaen" 
+            title="Presencia En" 
+            module="TorinoMotors_ModuleAjax" 
+            sortOrder="10" 
+            action="ajaxrequestadmin/presenciaen" 
+            resource="TorinoMotors_ModuleAjax::presenciaen" 
+            parent="TorinoMotors_ModuleAjax::automotriz"
+        />
+    </menu>
+</config>
