@@ -1,0 +1,13 @@
+{
+    "torinomotors_marcas": {
+        "column": {
+            "marca_id": true,
+            "imagen": true,
+            "created_at": true,
+            "updated_at": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

@@ -17,5 +17,22 @@
             resource="TorinoMotors_ModuleAjax::presenciaen" 
             parent="TorinoMotors_ModuleAjax::automotriz"
         />
+        <add
+            id="TorinoMotors_ModuleAjax::marcas"
+            title="Marcas"
+            module="TorinoMotors_ModuleAjax"
+            sortOrder="51"
+            parent="Magento_Backend::marketing"
+            resource="TorinoMotors_ModuleAjax::marcas"
+        />
+        <add
+            id="TorinoMotors_ModuleAjax::marcasautos"
+            title="Marcas para Autos"
+            module="TorinoMotors_ModuleAjax"
+            sortOrder="51"
+            parent="TorinoMotors_ModuleAjax::marcas"
+            action="ajaxrequestadmin/marcas/"
+            resource="TorinoMotors_ModuleAjax::marcasautos"
+        />
     </menu>
 </config>
