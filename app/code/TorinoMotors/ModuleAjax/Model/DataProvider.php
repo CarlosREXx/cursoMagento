@@ -15,10 +15,12 @@ class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
         $name,
         $primaryFieldName,
         $requestFieldName,
+        \Magento\Store\Model\StoreManagerInterface $storeManager,
         CollectionFactory $suscriptionCollectionFactory,
         array $meta = [], 
         array $data = []
     ){
+        $this->storeManager = $storeManager;
         $this->collection = $suscriptionCollectionFactory->create();
         parent::__construct($name, $primaryFieldName, $requestFieldName, $meta, $data);
     }
@@ -29,9 +31,22 @@ class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
             return $this->loadedData;
         }
         $items = $this->collection->getItems();
-        foreach($items as $_suscription){
-            $this->loadedData[$_suscription->getId()] = $_suscription->getData();
+        foreach ($items as $model) {
+            $this->loadedData[$model->getMarcaId()] = $model->getData();
+            if ($model->getImagen()) {
+                $m['imagen'][0]['name'] = $model->getImagen();
+                $m['imagen'][0]['url'] = $this->getMediaUrl().$model->getImagen();
+                $fullData = $this->loadedData;
+                $this->loadedData[$model->getMarcaId()] = array_merge($fullData[$model->getMarcaId()], $m);
+            }
         }
         return $this->loadedData;
+    }
+
+    public function getMediaUrl()
+    {
+        $mediaUrl = $this->storeManager->getStore()
+            ->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA).'image/marcas/';
+        return $mediaUrl;
     }
 }

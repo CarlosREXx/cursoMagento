@@ -58,7 +58,11 @@ class Thumbnail extends Column
                 if($item[$fieldName] != '') {
                     $url = $this->storeManager->getStore()->getBaseUrl(
                         UrlInterface::URL_TYPE_MEDIA
-                    ) . 'marcas/' . $item[$fieldName];
+                    ) . 'image/marcas/' . $item[$fieldName];
+                }else{
+                    $url = $this->storeManager->getStore()->getBaseUrl(
+                        UrlInterface::URL_TYPE_MEDIA
+                    ) . 'image/marcas/noimage/no-image.png';
                 }
                 $item[$fieldName . '_src'] = $url;
                 $item[$fieldName . '_orig_src'] = $url;

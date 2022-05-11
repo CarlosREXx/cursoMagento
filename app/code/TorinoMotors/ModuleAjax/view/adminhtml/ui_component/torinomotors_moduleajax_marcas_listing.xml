@@ -25,7 +25,7 @@
                     <item name="component" xsi:type="string">Magento_Ui/js/grid/provider</item>
                     <item name="update_url" xsi:type="url" path="mui/index/render" />
                     <item name="storageConfig" xsi:type="array">
-                        <item name="indexField" xsi:type="string">suscription_id</item>
+                        <item name="indexField" xsi:type="string">marca_id</item>
                     </item>
                 </item>
             </argument>
@@ -50,7 +50,7 @@
                 <item name="data" xsi:type="array">
                     <item name="selectProvider" xsi:type="string">torinomotors_moduleajax_marcas_listing.torinomotors_moduleajax_marcas_listing.spinner_columns.ids</item>
                     <item name="displayArea" xsi:type="string">bottom</item>
-                    <item name="indexField" xsi:type="string">suscription_id</item>
+                    <item name="indexField" xsi:type="string">marca_id</item>
                 </item>
             </argument>
             <action name="delete">
@@ -58,7 +58,7 @@
                     <item name="config" xsi:type="array">
                         <item name="type" xsi:type="string">delete</item>
                         <item name="label" xsi:type="string" translate="true">Delete</item>
-                        <item name="url" xsi:type="url" path="ajaxrequest/marcas/massDelete" />
+                        <item name="url" xsi:type="url" path="ajaxrequestadmin/marcas/massdelete" />
                         <item name="confirm" xsi:type="array">
                             <item name="title" xsi:type="string" translate="true">Delete Marca</item>
                             <item name="message" xsi:type="string" translate="true">Eliminar Marca</item>
@@ -106,7 +106,7 @@
                 </item>
             </argument>
         </column>
-        <actionsColumn name="actions" class="TorinoMotors\ModuleAjax\Ui\Component\Listing\Column\SuscriptionActions">
+        <actionsColumn name="actions" class="TorinoMotors\ModuleAjax\Ui\Component\Listing\Column\MarcasActions">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="resizeEnabled" xsi:type="boolean">false</item>

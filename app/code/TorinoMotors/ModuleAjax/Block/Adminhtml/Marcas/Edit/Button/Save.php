@@ -23,7 +23,7 @@ class Save extends Generic implements ButtonProviderInterface
                     "buttonAdapter" => [
                         "actions" => [
                             [
-                                "targetName" => "refacciones_form.refacciones_form",
+                                "targetName" => "marcas_form.marcas_form",
                                 "actionName" => "save",
                                 "params" => [false],
                             ],
@@ -51,7 +51,7 @@ class Save extends Generic implements ButtonProviderInterface
                     "buttonAdapter" => [
                         "actions" => [
                             [
-                                "targetName" => "refacciones_form.refacciones_form",
+                                "targetName" => "marcas_form.marcas_form",
                                 "actionName" => "save",
                                 "params" => [
                                     true, [
@@ -73,7 +73,7 @@ class Save extends Generic implements ButtonProviderInterface
                     "buttonAdapter" => [
                         "actions" => [
                             [
-                                "targetName" => "refacciones_form.refacciones_form",
+                                "targetName" => "marcas_form.marcas_form",
                                 "actionName" => "save",
                                 "params" => [
                                     true, [

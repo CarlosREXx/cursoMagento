@@ -2,7 +2,7 @@
 
 namespace TorinoMotors\ModuleAjax\Ui\Component\Listing\Column;
 
-class SuscriptionActions extends \Magento\Ui\Component\Listing\Columns\Column
+class MarcasActions extends \Magento\Ui\Component\Listing\Columns\Column
 {
     const URL_EDIT_PATH = "ajaxrequestadmin/marcas/edit";
     const URL_DELETE_PATH = "ajaxrequestadmin/marcas/delete";

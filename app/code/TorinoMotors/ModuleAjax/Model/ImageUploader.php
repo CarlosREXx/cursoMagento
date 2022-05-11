@@ -7,6 +7,9 @@ use Magento\Framework\Filesystem;
 use Magento\MediaStorage\Model\File\UploaderFactory;
 use Magento\Store\Model\StoreManagerInterface;
 use Psr\Log\LoggerInterface;
+use Magento\Framework\Filesystem\Driver\File;
+use Magento\Framework\App\Filesystem\DirectoryList;
+use Magento\Framework\ObjectManager\FactoryInterface;
 
 class ImageUploader
 {
@@ -22,18 +25,21 @@ class ImageUploader
     public function __construct(
         Database $coreFileStorageDatabase,
         Filesystem $filesystem,
+        File $file,
         UploaderFactory $uploaderFactory,
         StoreManagerInterface $storeManager,
         LoggerInterface $logger
     )
     {
+        $this->_file = $file;
+        $this->_filesystem = $filesystem;
         $this->coreFileStorageDatabase = $coreFileStorageDatabase;
         $this->mediaDirectory = $filesystem->getDirectoryWrite(\Magento\Framework\App\Filesystem\DirectoryList::MEDIA);
         $this->uploaderFactory = $uploaderFactory;
         $this->storeManager = $storeManager;
         $this->logger = $logger;
         $this->baseTmpPath = "tmp/img";
-        $this->basePath = "tmp/img";
+        $this->basePath = "image/marcas";
         $this->allowedExtensions = ['jpg', 'jpeg', 'png'];
     }
 
@@ -88,9 +94,7 @@ class ImageUploader
                 $baseImagePath
             );
         } catch (\Exception $e) {
-            throw new \Magento\Framework\Exception\LocalizedException(
-                __('Something went wrong while saving the file(s).')
-            );
+            return false;
         }
         return $imageName;
     }
@@ -128,5 +132,20 @@ class ImageUploader
             }
         }
         return $result;
+    }
+
+    public function removeFile($filename){
+        try{
+            $mediaRootDir = $this->_filesystem->getDirectoryRead(DirectoryList::MEDIA)->getAbsolutePath();
+            if($this->_file->isExists($mediaRootDir . $filename)){
+                $this->_file->deleteFile($mediaRootDir . $filename);
+            }
+        }catch(\Exception $e){
+            $this->logger->critical($e);
+            throw new \Magento\Framework\Exception\LocalizedException(
+                __('Something went wrong while deleting the file(s).')
+            );
+        }
+        return "Imagenes borradas de la carpeta media/images/marcas";
     }
 }

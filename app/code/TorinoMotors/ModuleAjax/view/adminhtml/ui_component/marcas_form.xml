@@ -43,7 +43,7 @@
                 <item name="sortOrder" xsi:type="number">20</item>
             </item>
         </argument>
-         <field name="image">
+         <field name="imagen">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="dataType" xsi:type="string">string</item>
@@ -58,6 +58,7 @@
                     <item name="uploaderConfig" xsi:type="array">
                         <item name="url" xsi:type="url" path="ajaxrequestadmin/marcas/tempupload"/>
                     </item>
+                    <item name="notice" xsi:type="string"><![CDATA[Allowed file types:jpg, jpeg, png.]]></item>
                 </item>
             </argument>
         </field>
