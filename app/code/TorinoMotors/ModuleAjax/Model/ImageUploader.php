@@ -9,7 +9,6 @@ use Magento\Store\Model\StoreManagerInterface;
 use Psr\Log\LoggerInterface;
 use Magento\Framework\Filesystem\Driver\File;
 use Magento\Framework\App\Filesystem\DirectoryList;
-use Magento\Framework\ObjectManager\FactoryInterface;
 
 class ImageUploader
 {
@@ -94,7 +93,10 @@ class ImageUploader
                 $baseImagePath
             );
         } catch (\Exception $e) {
-            return false;
+            $this->logger->critical($e);
+            throw new \Magento\Framework\Exception\LocalizedException(
+                __('Something went wrong while deleting the file(s).')
+            );
         }
         return $imageName;
     }

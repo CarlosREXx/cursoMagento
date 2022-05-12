@@ -52,11 +52,11 @@ class Save extends \Magento\Backend\App\Action
                 $this->uiExampleModel->load($marcaId);
             }
             $image = $this->getRequest()->getParam("imagen");
-            $image = $this->_imageUploader->moveFileFromTmp($image[0]["name"]);
-            if (!$image){
-                $this->messageManager->addError(__("No image upload"));
-                return $resultRedirect->setPath("*/*/add");
-            }
+            ($image) ? $image = $this->_imageUploader->moveFileFromTmp($image[0]["name"]) : "";
+            // if (!$image){
+            //     $this->messageManager->addError(__("No image upload"));
+            //     return $resultRedirect->setPath("*/*/add");
+            // }
             $this->uiExampleModel->setData($setData);
             try{
                 $this->uiExampleModel->save();
