@@ -53,9 +53,10 @@ class Save extends \Magento\Backend\App\Action
             }
             $image = $this->getRequest()->getParam("imagen");
             if($image){
-                ($image[0]["name"] == $this->uiExampleModel->getImagen()) ? "" : $image = $this->_imageUploader->moveFileFromTmp($image[0]["name"]);
+                $imageName = $image[0]["name"];
+                ($imageName == $this->uiExampleModel->getImagen()) ? "" : $image = $this->_imageUploader->moveFileFromTmp($imageName);
                 if($this->uiExampleModel->getImagen()){
-                    if(!($image[0]["name"] == $this->uiExampleModel->getImagen())){
+                    if(!($imageName == $this->uiExampleModel->getImagen())){
                         $this->_imageUploader->removeFile("image/marcas/" . $this->uiExampleModel->getImagen());
                     }
                 } 
