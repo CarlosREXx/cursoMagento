@@ -1,7 +1,7 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <virtualType name="TorinoMotors\ModuleAjax\Model\ResourceModel\Marcas\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
         <arguments>
-            <argument name="mainTable" xsi:type="string">torinomotors_marcas</argument>
+            <argument name="mainTable" xsi:type="string">torinomotors_marcas_complete</argument>
             <argument name="resourceModel" xsi:type="string">TorinoMotors\ModuleAjax\Model\ResourceModel\Marcas</argument>
         </arguments>
     </virtualType>

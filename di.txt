@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category    Universal
+ * @package     Universal_Oficina
+ * @author      cjayala@grupoautofin.com
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    
+    <preference for="Universal\Oficina\Api\Validate\DocumentInterface" type="Universal\Oficina\Model\Validate\Document" />
+
+    <type name="Magento\Webapi\Controller\Rest">
+        <plugin name="universal_oficina_webapi_redirect_plugin" type="Universal\Oficina\Controller\Plugin\WebApiRedirect" />
+    </type>
+
+    <virtualType name="UniversalOficinaFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
+        <arguments>
+            <argument name="appliers" xsi:type="array">
+                <item name="regular" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter</item>
+                <item name="fulltext" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="UniversalOficinaRefiereGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">Universal\Oficina\Model\ResourceModel\Refiere\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">UniversalOficinaFilterPool</argument>
+        </arguments>
+    </virtualType>
+    <type name="Universal\Oficina\Ui\Component\Refiere\Listing\DataProvider">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">universal_oficina_referidos</argument>
+            <argument name="eventPrefix" xsi:type="string">universal_oficina_refiere_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">refiere_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">Universal\Oficina\Model\ResourceModel\Refiere</argument>
+        </arguments>
+    </type>
+    <type name="Universal\Oficina\Ui\Component\Refiere\Nota\Listing\DataProvider">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">universal_oficina_referidos_notas</argument>
+            <argument name="eventPrefix" xsi:type="string">universal_oficina_refiere_nota_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">refiere_grid_nota_collection</argument>
+            <argument name="resourceModel" xsi:type="string">Universal\Oficina\Model\ResourceModel\Refiere\Nota</argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="universal_oficina_refiere_listing_data_source" xsi:type="string">Universal\Oficina\Ui\Component\Refiere\Listing\DataProvider</item>
+                <item name="universal_oficina_refiere_notas_listing_data_source" xsi:type="string">Universal\Oficina\Ui\Component\Refiere\Nota\Listing\DataProvider</item>
+                <item name="universal_oficina_refiere_listing_data_source_frontend" xsi:type="string">Universal\Oficina\Model\ResourceModel\Refiere\Grid\Collection</item>
+                <item name="universal_oficina_denuncia_listing_data_source" xsi:type="string">Universal\Oficina\Ui\Component\Denuncia\Listing\DataProvider</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <virtualType name="UniversalOficinaDenunciaGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">Universal\Oficina\Model\ResourceModel\Denuncia\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">UniversalOficinaFilterPool</argument>
+        </arguments>
+    </virtualType>
+    <type name="Universal\Oficina\Ui\Component\Denuncia\Listing\DataProvider">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">universal_oficina_denuncia_promotor</argument>
+            <argument name="eventPrefix" xsi:type="string">universal_oficina_denuncia_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">denuncia_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">Universal\Oficina\Model\ResourceModel\Denuncia</argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Framework\Console\CommandListInterface">
+       <arguments>
+           <argument name="commands" xsi:type="array">
+               <item name="universalOficinaCreate" xsi:type="object">Universal\Oficina\Console\Create</item>
+           </argument>
+       </arguments>
+   </type>
+
+</config>

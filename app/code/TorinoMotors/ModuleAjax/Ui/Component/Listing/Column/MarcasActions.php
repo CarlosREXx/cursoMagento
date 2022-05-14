@@ -56,7 +56,15 @@ class MarcasActions extends \Magento\Ui\Component\Listing\Columns\Column
                                     ),
                                 "label" => __("Delete"),
                                 ],
-                            ];
+                            'LugaresIndex' => [
+                                'href' => '',
+                                'callback' => [
+                                    //'provider' => 'oficina_refiere_listing.oficina_refiere_listing.modal_notas',
+                                    //'target' => 'openModal'
+                                ],
+                                'label' => __('Ver Lugares')
+                            ],
+                        ];
                     }
                 }
           }

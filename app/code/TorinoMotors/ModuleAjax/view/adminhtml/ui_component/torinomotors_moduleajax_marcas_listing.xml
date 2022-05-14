@@ -87,6 +87,17 @@
                 </item>
             </argument>
         </column>
+        <column name="marca_name">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="editor" xsi:type="array">
+                        <item name="editorType" xsi:type="string">text</item>
+                    </item>
+                    <item name="label" xsi:type="string" translate="true">Marca_Name</item>
+                </item>
+            </argument>
+        </column>
         <column name="imagen" class="TorinoMotors\ModuleAjax\Ui\Component\Listing\Column\Thumbnail" component="Magento_Ui/js/grid/columns/thumbnail">
             <settings>
                 <hasPreview>1</hasPreview>
@@ -94,6 +105,17 @@
                 <label translate="true">Thumbnail</label>
                 <sortable>false</sortable>
             </settings>
+        </column>
+        <column name="dealer">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="editor" xsi:type="array">
+                        <item name="editorType" xsi:type="string">text</item>
+                    </item>
+                    <item name="label" xsi:type="string" translate="true">Distribuidora</item>
+                </item>
+            </argument>
         </column>
         <column name="created_at">
             <argument name="data" xsi:type="array">

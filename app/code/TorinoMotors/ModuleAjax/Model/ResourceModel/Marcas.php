@@ -12,6 +12,6 @@ class Marcas extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
     }
     protected function _construct()
     {
-        $this->_init("torinomotors_marcas", "marca_id");
+        $this->_init("torinomotors_marcas_complete", "marca_id");
     }
 }
