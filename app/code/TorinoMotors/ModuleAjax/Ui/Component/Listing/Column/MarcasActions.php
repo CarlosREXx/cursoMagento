@@ -6,6 +6,7 @@ class MarcasActions extends \Magento\Ui\Component\Listing\Columns\Column
 {
     const URL_EDIT_PATH = "ajaxrequestadmin/marcas/edit";
     const URL_DELETE_PATH = "ajaxrequestadmin/marcas/delete";
+    const URL_LUGARES_PATH = "ajaxrequestadmin/marcas/lugares";
 
     /**
      * @var \Magento\Framework\UrlInterface
@@ -57,11 +58,16 @@ class MarcasActions extends \Magento\Ui\Component\Listing\Columns\Column
                                 "label" => __("Delete"),
                                 ],
                             'LugaresIndex' => [
-                                'href' => '',
-                                'callback' => [
-                                    //'provider' => 'oficina_refiere_listing.oficina_refiere_listing.modal_notas',
-                                    //'target' => 'openModal'
-                                ],
+                                'href' => $this->urlBuilder->getUrl(
+                                    static::URL_LUGARES_PATH,
+                                    [
+                                        "marca_id" => $item["marca_id"],
+                                    ],
+                                    ),
+                                // 'callback' => [
+                                //     'provider' => 'oficina_refiere_listing.oficina_refiere_listing.modal_notas',
+                                //     'target' => 'test_modal'
+                                // ],
                                 'label' => __('Ver Lugares')
                             ],
                         ];
