@@ -3,9 +3,7 @@
     <update handle="styles"/>
     <body>
         <referenceContainer name="content">
-            <!-- <block class="Magento\Framework\View\Element\Template"
-            name="torinomotors.data.filter.marcas"
-            template="TorinoMotors_ModuleAjax::lugares.phtml" /> -->
+            <uiComponent name="distribuidoras_grid_listing" />
         </referenceContainer>  
     </body>
 </page>

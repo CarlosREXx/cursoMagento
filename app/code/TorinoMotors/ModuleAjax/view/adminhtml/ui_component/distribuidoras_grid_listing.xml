@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">distribuidoras_grid_listing.distribuidoras_grid_listing_data_source</item>
+        </item>
+    </argument>
+
+    <settings>
+        <spinner>distribuidoras_grid_columns</spinner>
+        <deps>
+            <dep>distribuidoras_grid_listing.distribuidoras_grid_listing</dep>
+        </deps>
+    </settings>
+
+    <dataSource name="distribuidoras_grid_listing_data_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">TorinoMotors\ModuleAjax\Ui\Component\Listing\DataProvider</argument>
+            <argument name="name" xsi:type="string">distribuidoras_grid_listing_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">dealer_place_id</argument>
+            <argument name="requestFieldName" xsi:type="string">dealer_place_id</argument>
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="update_url" xsi:type="url" path="mui/index/render"/>
+                </item>
+            </argument>
+        </argument>
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/grid/provider</item>
+            </item>
+        </argument>
+    </dataSource>
+    <listingToolbar name="listing_top">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="sticky" xsi:type="boolean">true</item>
+            </item>
+        </argument>
+
+        <filters name="listing_filters" displayArea="dataGridFilters">
+
+            <settings>
+                <dataScope>filters</dataScope>
+                <childDefaults>
+                    <param name="imports" xsi:type="array">
+                        <item name="visible" xsi:type="string">distribuidoras_grid_listing.distribuidoras_grid_listing.listing_top.bookmarks:current.columns.${ $.index }.visible</item>
+                    </param>
+                    <param name="provider" xsi:type="string">distribuidoras_grid_listing.distribuidoras_grid_listing.listing_top.listing_filters</param>
+                </childDefaults>
+                <storageConfig>
+                    <namespace>current.filters</namespace>
+                    <provider>distribuidoras_grid_listing.distribuidoras_grid_listing.listing_top.bookmarks</provider>
+                </storageConfig>
+            </settings>
+
+            <filterInput name="filename_id" provider="${ $.parentName }">
+                <settings>
+                    <label translate="true">Dealer Place Id</label>
+                    <dataScope>dealer_place_id</dataScope>
+                </settings>
+            </filterInput>
+
+        </filters>
+
+        <paging name="listing_paging">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="selectProvider" xsi:type="string">distribuidoras_grid_listing.distribuidoras_grid_listing.distribuidoras_grid_columns.ids</item>
+                    <item name="storageConfig" xsi:type="array">
+                        <item name="provider" xsi:type="string">distribuidoras_grid_listing.distribuidoras_grid_listing.listing_top.bookmarks</item>
+                        <item name="namespace" xsi:type="string">current.paging</item>
+                    </item>
+                </item>
+            </argument>
+        </paging>
+
+    </listingToolbar>
+
+    <columns name="distribuidoras_grid_columns">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="childDefaults" xsi:type="array">
+                    <item name="fieldAction" xsi:type="array">
+                        <item name="provider" xsi:type="string">distribuidoras_grid_listing.distribuidoras_grid_listing.distribuidoras_grid_columns.actions</item>
+                        <item name="target" xsi:type="string">applyAction</item>
+                        <item name="params" xsi:type="array">
+                            <item name="0" xsi:type="string">edit</item>
+                            <item name="1" xsi:type="string">${ $.$data.rowIndex }</item>
+                        </item>
+                    </item>
+                    <item name="controlVisibility" xsi:type="boolean">true</item>
+                    <item name="appendTo" xsi:type="string">distribuidoras_grid_listing.distribuidoras_grid_listing.listing_top.columns_controls</item>
+                    <item name="storageConfig" xsi:type="array">
+                        <item name="provider" xsi:type="string">distribuidoras_grid_listing.distribuidoras_grid_listing.listing_top.bookmarks</item>
+                        <item name="root" xsi:type="string">columns.${ $.index }</item>
+                        <item name="namespace" xsi:type="string">current.${ $.storageConfig.root}</item>
+                    </item>
+                </item>
+            </item>
+        </argument>
+        <column name="dealer_id">
+            <argument name="data" xsi:type="array">
+                <item name="js_config" xsi:type="array">
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/column</item>
+                </item>
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="align" xsi:type="string">left</item>
+                    <item name="label" xsi:type="string" translate="true">Dealer Id</item>
+                    <item name="sortOrder" xsi:type="number">10</item>
+                </item>
+            </argument>
+        </column>
+
+        <column name="dealer_place">
+            <argument name="data" xsi:type="array">
+                <item name="js_config" xsi:type="array">
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/column</item>
+                </item>
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="align" xsi:type="string">left</item>
+                    <item name="label" xsi:type="string" translate="true">Dealer Place</item>
+                    <item name="sortOrder" xsi:type="number">10</item>
+                </item>
+            </argument>
+        </column>
+
+    </columns>
+</listing>
+
