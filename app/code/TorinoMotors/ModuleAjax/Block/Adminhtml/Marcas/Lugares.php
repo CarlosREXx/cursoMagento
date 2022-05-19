@@ -9,7 +9,7 @@ class Lugares extends \Magento\Backend\Block\Widget\Grid\Extended
     public function __construct(
         \Magento\Backend\Block\Template\Context $context,
         \Magento\Backend\Helper\Data $backendHelper,
-        \TorinoMotors\ModuleAjax\Model\ResourceModel\Distribuidoras\CollectionFactory $collectionFactory,
+        \TorinoMotors\ModuleAjax\Model\ResourceModel\Distribuidoras\Collection $collectionFactory,
         \Magento\Framework\Registry $coreRegistry,
         array $data = []
     ) {
@@ -37,7 +37,7 @@ class Lugares extends \Magento\Backend\Block\Widget\Grid\Extended
         $objectManager = \Magento\Framework\App\ObjectManager::getInstance();  
         $request = $objectManager->get('Magento\Framework\App\Request\Http');  
         $param = $request->getParam('marca_id');
-        $collection = $this->collectionFactory->create()->addFieldToFilter("marca_id", $param);
+        $collection = $this->collectionFactory->addFieldToFilter("marca_id", $param);
         $this->setCollection($collection);
         return parent::_prepareCollection();
     }
@@ -52,7 +52,7 @@ class Lugares extends \Magento\Backend\Block\Widget\Grid\Extended
             [
                 'header' => __('Dealer Place Id'),
                 'sortable' => true,
-                'index' => 'entity_id',
+                'index' => 'dealer_place_id',
                 'header_css_class' => 'col-id',
                 'column_css_class' => 'col-id'
             ]
@@ -68,7 +68,7 @@ class Lugares extends \Magento\Backend\Block\Widget\Grid\Extended
             'dealer_place',
             [
                 'header' => __('Dealer Place'),
-                'index' => 'dealer'
+                'index' => 'dealer_place'
             ]
         );
 

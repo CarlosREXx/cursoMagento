@@ -3,7 +3,7 @@
     <update handle="styles"/>
     <body>
         <referenceContainer name="content">
-            
+            <uiComponent name="torinomotors_moduleajax_distribuidoras_listing" />
         </referenceContainer>
     </body>
 </page>
