@@ -19,6 +19,78 @@
             </form>
         </div>
     </div>
+    <?php 
+        $motonetas = $block->motosData("5");
+    ?>
+    <div class="card-body mt-3">
+        <div class="lightSlider masonry-container" data-item="4" data-item-md="2"
+            data-item-sm="1" data-auto="true" data-loop="true" data-pager="false">
+            <?php  for($i = 0; $i < count($motonetas[0]); $i++): ?>
+            <div class="post-portfolio">
+                <figure class="bg-accent-3">
+                    <div class="img-wrapper">
+                        <a href="#"><img src="http://torinomotors.mx/pub/media/catalog/product<?php echo $motonetas[1][$i] ?>" alt="/"></a>
+                    </div>
+
+                </figure>
+                <p class="text-center doradouniv-2"><?= $motonetas[0][$i] ?></p>
+            </div>
+            <?php endfor ?>
+        </div>
+    </div>
+
+    <br>
+    <?php $motocarro = $block->motosData("11"); ?>
+    <div class="card-body mt-3">
+        <div class="lightSlider masonry-container" data-item="4" data-item-md="2"
+            data-item-sm="1" data-auto="true" data-loop="true" data-pager="false">
+            <?php  for($i = 0; $i < count($motocarro[0]); $i++): ?>
+            <div class="post-portfolio">
+                <figure class="bg-accent-3">
+                    <div class="img-wrapper">
+                        <a href="#"><img src="http://torinomotors.mx/pub/media/catalog/product<?php echo $motocarro[1][$i] ?>" alt="/"></a>
+                    </div>
+
+                </figure>
+                <p class="text-center doradouniv-2"><?= $motocarro[0][$i] ?></p>
+            </div>
+            <?php endfor ?>
+        </div>
+    </div>
+
+    <p><?php $custom = $block->motosData("10", "8"); print_r($custom[0]) ?></p>
+
+    <br>
+
+    <p><?php print_r($custom[1]) ?></p>
+
+    <br>
+
+    <p><?php $urbanas = $block->motosData("6", "7"); print_r($urbanas[0]) ?></p>
+
+    <br>
+
+    <p><?php print_r($urbanas[1]) ?></p>
+
+    <br>
+
+    <p><?php $deportivas = $block->motosData("9"); print_r($deportivas[0]) ?></p>
+
+    <br>
+
+    <p><?php print_r($deportivas[1]) ?></p>
+
+    <br>
+
+    <p><?php $motocarro = $block->motosData("11"); print_r($motocarro[0]) ?></p>
+
+    <br>
+
+    <p><?php print_r($motocarro[1]) ?></p>
+
+    <br>
+
+    <p><?php //print_r($block->torinoData()) ?></p>
 
 <script type="text/x-magento-init">
 {
