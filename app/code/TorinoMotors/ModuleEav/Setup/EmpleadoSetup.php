@@ -3,7 +3,6 @@
 namespace TorinoMotors\ModuleEav\Setup;
 
 use Magento\Eav\Setup\EavSetup;
-use Yandex\Allure\Adapter\Annotation\Label;
 
 class EmpleadoSetup extends EavSetup
 {
@@ -13,7 +12,7 @@ class EmpleadoSetup extends EavSetup
 
         $entities = [
             $empleadoEntity => [
-                'entity_model' => 'TorinoMotors\ModuleEav\ResourceModel\Empledo',
+                'entity_model' => 'TorinoMotors\ModuleEav\Model\ResourceModel\Empleado',
                 'table' => $empleadoEntity . '_entity',
                 'attributes' => [
                     'department_id' => [

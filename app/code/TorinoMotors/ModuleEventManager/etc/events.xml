@@ -1,0 +1,8 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="torinomotors_register_visit">
+        <observer name="register_torinomotors_visit" instance="TorinoMotors\ModuleEventManager\Observer\RegisterVisitObserver" />
+    </event>
+    <event name="checkout_cart_product_add_after">
+        <observer name="checkout_cart_qty" instance="TorinoMotors\ModuleEventManager\Observer\CheckoutCartQtyObserver" />
+    </event>
+</config>

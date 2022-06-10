@@ -39,7 +39,7 @@ class UpgradeData implements UpgradeDataInterface
         $empleado1->setNote('Nota referente a Carlos');
         $empleado1->save();
         /* Departamento Finance */
-        $financeDep = $this->departamentoFactory->create();+
+        $financeDep = $this->departamentoFactory->create();
         $financeDep->setName('Finance');
         $financeDep->save();
         /* Empleado 2 */

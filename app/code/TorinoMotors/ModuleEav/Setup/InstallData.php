@@ -11,7 +11,7 @@ class InstallData implements InstallDataInterface
     private $empleadoSetupFactory;
 
     public function __construct(
-        TorinoMotors\ModuleEav\Setup\EmpleadoSetupFactory $empleadoSetupFactory
+        EmpleadoSetupFactory $empleadoSetupFactory
     )
     {
         $this->empleadoSetupFactory = $empleadoSetupFactory;     
@@ -37,7 +37,7 @@ class InstallData implements InstallDataInterface
             $empleadoEntity, 'vat_number', ['type'=>'varchar']
         );
         $empleadoSetup->addAttribute(
-            $empleadoEntity, 'note', ['type'=>'tetx']
+            $empleadoEntity, 'note', ['type'=>'text']
         );
         $setup->endSetup();
     }

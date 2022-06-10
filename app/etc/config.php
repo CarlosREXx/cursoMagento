@@ -297,6 +297,8 @@ return [
         'PayPal_BraintreeGraphQl' => 1,
         'Temando_ShippingRemover' => 1,
         'TorinoMotors_ModuleAjax' => 1,
+        'TorinoMotors_ModuleEav' => 1,
+        'TorinoMotors_ModuleEventManager' => 1,
         'TorinoMotors_ModuleSchema' => 1,
         'TorinoMotors_Refacciones' => 1,
         'Vertex_Tax' => 1,
