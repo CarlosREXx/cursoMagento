@@ -1,0 +1,93 @@
+<style>
+
+    .section{
+        width: 100%;
+        margin: 20px auto;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        background: #023e8a;
+        border-radius: 15px;
+    }
+
+    .titulo{
+        width: 100%;
+        font-family: Arial, Helvetica, sans-serif;
+        font-style: 30px;
+        padding: 15px;
+        text-align: center;
+        color: #fff;
+    }
+
+    table{
+        padding: 15px;
+        width: 100%;
+    }
+
+    table .left{
+
+        color: #fff;
+        padding-bottom: 15px;
+        padding-right: 15px;
+        font-family: Arial;
+        font-weight: bold;
+
+    }
+
+    table .right{
+        padding-bottom: 15px;
+    }
+
+    table .right input{
+        padding: 5px;
+        outline-style: none;
+        border-radius: 10px;
+        border: none;
+    }
+
+    table .button input{
+        background: #023e8a;
+        border: 2px solid #fff;
+        border-radius: 10px;
+        font-family: Arial;
+        font-size: 17px;
+        color: #fff;
+        padding: 10px;
+        cursor: pointer;
+    }
+
+    table .button{
+        text-align: center;
+    }
+
+    table .button input:hover{
+        background: #fff;
+        border-color: #023e8a;
+        color: #023e8a;
+    }
+
+</style>
+<?php /** @var \Magento\Customer\Block\Form\Login $block */ ?>
+
+<p><?= $block->escapeUrl('/ajaxrequest/login/post') ?></p>
+<div class="section">
+    <div class="titulo">
+        <h2> INTRODUCE TUS DATOS </h1>
+    </div>
+    <form  action="<?= $block->escapeUrl('/ajaxrequest/login/post') ?>"
+            method="post"
+            id="login-form"
+            data-mage-init='{"validation":{}}'>
+        <fieldset class="fieldset login" data-hasrequired="<?= $block->escapeHtml(__('* Required Fields')) ?>">
+            <?= $block->getBlockHtml('formkey') ?>
+            <div class="field note"><?= $block->escapeHtml(__('If you have an account, sign in with your email address.')) ?></div>
+            <table>
+                <tr><td class="left">Login: </td><td class="right"><input type="email" name="login[username]" maxlength="30" value="<?= $block->escapeHtmlAttr($block->getUsername()) ?>" <?php if ($block->isAutocompleteDisabled()) : ?> autocomplete="off"<?php endif; ?> id="email" type="email" class="input-text" placeholder="<?= $block->escapeHtmlAttr(__('Email')) ?>" data-mage-init='{"mage/trim-input":{}}' data-validate="{required:true, 'validate-email':true}"></td></tr>
+                <tr><td class="left">Password: </td><td class="right"><input type="password" name="login[password]" maxlength="30" <?php if ($block->isAutocompleteDisabled()) : ?> autocomplete="off"<?php endif; ?> class="input-text" id="pass" placeholder="<?= $block->escapeHtmlAttr(__('Password')) ?>" data-validate="{required:true}"></td></tr>
+                    <?= $block->getChildHtml('form_additional_info') ?>
+                <tr><td colspan="2" class="button"><button type="submit" name="send"><?= $block->escapeHtml(__('Sign In')) ?></button></td></tr>
+                <tr><td colspan="2" class="button"><a class="action remind" href="<?= $block->escapeUrl($block->getForgotPasswordUrl()) ?>"><span><?= $block->escapeHtml(__('Forgot Your Password?')) ?></span></a></td></tr>
+            </table>
+        </fieldset>
+    </form>
+</div>
