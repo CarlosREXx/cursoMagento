@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magneto:framework:ObjectManager/etc/config.xsd">
+    <preference for="TorinoMotors\ModuleWebApi\Api\Data\SlideInterface" type="TorinoMotors\ModuleWebApi\Model\Slide" />
+    <preference for="TorinoMotors\ModuleWebApi\Api\Data\ImageInterface" type="TorinoMotors\ModuleWebApi\Model\Image" />
+    <preference for="TorinoMotors\ModuleWebApi\Api\SliderRepositoryInterface" type="TorinoMotors\ModuleWebApi\Model\SlideRepository" />
+    <preference for="TorinoMotors\ModuleWebApi\Api\ImageRepositoryInterface" type="TorinoMotors\ModuleWebApi\Model\ImageRepository" />
+</config>

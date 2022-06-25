@@ -300,6 +300,7 @@ return [
         'TorinoMotors_ModuleEav' => 1,
         'TorinoMotors_ModuleEventManager' => 1,
         'TorinoMotors_ModuleSchema' => 1,
+        'TorinoMotors_ModuleWebApi' => 1,
         'TorinoMotors_Refacciones' => 1,
         'Vertex_Tax' => 1,
         'Vertex_AddressValidation' => 1,

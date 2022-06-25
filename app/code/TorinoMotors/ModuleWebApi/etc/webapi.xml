@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <route url="/V1/torinomotorslineSliderSlide/:slideId" method="GET">
+        <service class="TorinoMotors\ModuleWebApi\Api\SliderRepositoryInterface" method="getById" />
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+    <route url="/V1/torinomotorslineSliderSlide/search" method="GET">
+        <service class="TorinoMotors\ModuleWebApi\Api\SliderRepositoryInterface" method="getList" />
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+    <route url="/V1/torinomotorslineSliderSlide" method="POST">
+        <service class="TorinoMotors\ModuleWebApi\Api\SliderRepositoryInterface" method="save" />
+        <resources>
+            <resource ref="TorinoMotors_ModuleWebApi::slide_save" />
+        </resources>
+    </route>
+    <route url="/V1/torinomotorslineSliderSlide/:id" method="PUT">
+        <service class="TorinoMotors\ModuleWebApi\Api\SliderRepositoryInterface" method="save" />
+        <resources>
+            <resource ref="TorinoMotors_ModuleWebApi::slide_save" />
+        </resources>
+    </route>
+    <route url="/V1/torinomotorslineSliderSlide/:slideId" method="DELETE">
+        <service class="TorinoMotors\ModuleWebApi\Api\SliderRepositoryInterface" method="deleteById" />
+        <resources>
+            <resource ref="TorinoMotors_ModuleWebApi::slide_delete" />
+        </resources>
+    </route>
+    <route url="/V1/torinomotorslineSliderImage/:imageId" method="GET">
+        <service class="TorinoMotors\ModuleWebApi\Api\ImageRepositoryInterface" method="getList" />
+        <resources>
+            <resource ref="TorinoMotors_ModuleWebApi::image" />
+        </resources>
+    </route>
+    <route url="/V1/torinomotorslineSliderImage/search" method="GET">
+        <service class="TorinoMotors\ModuleWebApi\Api\ImageRepositoryInterface" method="getList" />
+        <resources>
+            <resource ref="TorinoMotors_ModuleWebApi::image_save" />
+        </resources>
+    </route>
+    <route url="/V1/torinomotorslineSliderImage" method="POST">
+        <service class="TorinoMotors\ModuleWebApi\Api\ImageRepositoryInterface" method="save" />
+        <resources>
+            <resource ref="TorinoMotors_ModuleWebApi::image_save" />
+        </resources>
+    </route>
+    <route url="/V1/torinomotorslineSliderImage/:id" method="PUT">
+        <service class="TorinoMotors\ModuleWebApi\Api\ImageRepositoryInterface" method="save" />
+        <resources>
+            <resource ref="TorinoMotors_ModuleWebApi::image_save" />
+        </resources>
+    </route>
+    <route url="/V1/torinomotorslineSliderImage/:imageId" method="DELETE">
+        <service class="TorinoMotors\ModuleWebApi\Api\ImageRepositoryInterface" method="deleteById" />
+        <resources>
+            <resource ref="TorinoMotors_ModuleWebApi::image_delete" />
+        </resources>
+    </route>
+</routes>
