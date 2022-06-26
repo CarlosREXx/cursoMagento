@@ -138,18 +138,18 @@ class SlideRepository implements \TorinoMotors\ModuleWebApi\Api\SliderRepository
         }
         $collection->setCurPage($searchCriteria->getCurrentPage());
         $collection->setPageSize($searchCriteria->getPageSize());
-        $slide = [];
+        $slides = [];
         /** @var \TorinoMotors\ModuleWebApi\Model\Slide $slideModel */
         foreach($collection as $slideModel){
             $slideData = $this->dataSlideFactory->create();
             $this->dataObjectHelper->populateWithArray(
                 $slideData,
                 $slideModel->getData(),
-                '\TorinoMotors\MaoduleWebApi\Api\Data\SlideInterface'
+                '\TorinoMotors\ModuleWebApi\Api\Data\SlideInterface'
             );
             $slides[] = $this->dataObjectProcessor->buildOutputDataArray(
                 $slideData,
-                '\TorinoMotors\MaoduleWebApi\Api\Data\SlideInterface'
+                '\TorinoMotors\ModuleWebApi\Api\Data\SlideInterface'
             );
         }
         $this->searchResultsFactory->setItems($slides);
