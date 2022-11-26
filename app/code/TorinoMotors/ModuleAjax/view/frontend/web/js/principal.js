@@ -38,5 +38,33 @@ define([
         });
         return false;
         });
+        var pdf = urlBuilder.build('ajaxrequest/torino/generatepdf');
+        $('#generate_pdf').on('click', function(){
+            debugger;
+            var id = $('#value_hidden').val();
+            $.ajax({
+                url: pdf,
+                type: "POST",
+                data: {id: id},
+                showLoader: true,
+                cache: false,
+                dataType: "json",
+                success: function(data, status, xhr){
+                    debugger;
+                    if(!data['error']){
+                        $('.img-qr').attr('src', data['qr']);
+                        $('.qr-content').removeClass('d-none');
+                        $('.qr-content').addClass('d-flex');
+                    }else{
+                        this.error(data['error'], status, xhr, data['message_error']);
+                    }
+                },
+                error: function(error, status, xhr, message){
+                    var detail = status+' '+xhr.status+' '+message;
+                    alert('Error happens. Try again. ('+detail+')');
+                    console.log(error);
+                }
+            })
+        });   
     });
 });

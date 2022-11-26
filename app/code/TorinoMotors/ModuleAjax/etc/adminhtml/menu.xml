@@ -34,5 +34,13 @@
             action="ajaxrequestadmin/marcas/"
             resource="TorinoMotors_ModuleAjax::marcasautos"
         />
+        <add
+            id="TorinoMotors_ModuleAjax::fiesta_gam"
+            title="Fiesta GAM"
+            module="TorinoMotors_ModuleAjax"
+            sortOrder="20"
+            action="ajaxrequestadmin/fiesta/"
+            resource="TorinoMotors_ModuleAjax::fiesta_gam"
+        />
     </menu>
 </config>

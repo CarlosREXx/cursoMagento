@@ -2,11 +2,10 @@
 
 namespace TorinoMotors\ModuleAjax\Controller\Index;
 
-use Magento\Framework\App\Action\Action;
 use Magento\Framework\App\Action\Context;
 use Magento\Framework\View\Result\PageFactory;
 
-class Index extends Action
+class Index extends \Magento\Customer\Controller\Account\Index
 {
     /**
      * @var PageFactory
@@ -19,11 +18,11 @@ class Index extends Action
      * @param Context $context
      * @param PageFactory $pageFactory
      */
-    public function __construct(Context $context, PageFactory $pageFactory)
-    {
-        $this->resultPageFactory = $pageFactory;
-        parent::__construct($context);
-    }
+    // public function __construct(Context $context, PageFactory $pageFactory)
+    // {
+    //     $this->resultPageFactory = $pageFactory;
+    //     parent::__construct($context);
+    // }
 
     /**
      * The controller action

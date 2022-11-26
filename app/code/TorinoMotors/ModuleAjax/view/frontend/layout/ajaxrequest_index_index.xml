@@ -1,13 +1,12 @@
-<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column"
-      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
-
+<page layout="principal_layout" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="principal_head_blocks"/>
     <head>
         <title>Principal</title>
     </head> 
 
     <body>
         <referenceContainer name="content">
-            <block class="TorinoMotors\ModuleAjax\Block\Index" name="ajaxrequest_principal" template="TorinoMotors_ModuleAjax::principal.phtml" />
+            <block class="TorinoMotors\ModuleAjax\Block\Index" name="ajaxrequest_principal" template="TorinoMotors_ModuleAjax::principal.phtml" cacheable="false"/>
         </referenceContainer>
     </body>
 </page>

@@ -175,6 +175,81 @@ class UpgradeSchema implements UpgradeSchemaInterface
             }
         }
 
+        if(version_compare($context->getVersion(), '1.0.3') < 0){
+            if(!$installer->tableExists('fiesta_gam_table')){
+                $table = $installer->getConnection()->newTable(
+                    $installer->getTable('fiesta_gam_table')
+                );
+                $table->addColumn(
+                    "id",
+                    \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
+                    null,
+                    [
+                        "identity" => true,
+                        "unsigned" => true,
+                        "nullable" => false,
+                        "primary" => true
+                    ],
+                    "Id"
+                )->addColumn(
+                    'rh_id',
+                    \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
+                    null,
+                    ['nullable' => false, 'unsigned' => true],
+                    'RH Id'
+                )->addColumn(
+                    "name",
+                    \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
+                    "64k",
+                    ['nullable' => false],
+                    "Nombre"
+                )->addColumn(
+                    "qr_code",
+                    \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
+                    "64k",
+                    ['nullable' => false],
+                    "Codigo QR"
+                )->addColumn(
+                    "asistencia",
+                    \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
+                    null,
+                    ['nullable' => false],
+                    "Asistencia"
+                )->addColumn(
+                    "invitados",
+                    \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
+                    "128k",
+                    ['nullable' => false],
+                    "Invitados"
+                )->addColumn(
+                    "num_invitados",
+                    \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
+                    null,
+                    ['nullable' => false],
+                    "Num. Invitados"
+                )->addColumn(
+                    "qr_invitados",
+                    \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
+                    "64k",
+                    ['nullable' => false],
+                    "QR Invitados"
+                )->addColumn(
+                    'created_at',
+                    \Magento\Framework\DB\Ddl\Table::TYPE_TIMESTAMP,
+                    null,
+                    ['nullable' => false, 'default' => \Magento\Framework\DB\Ddl\Table::TIMESTAMP_INIT,],
+                    'Created At'
+                )->addColumn(
+                    'updated_at',
+                    \Magento\Framework\DB\Ddl\Table::TYPE_TIMESTAMP,
+                    null,
+                    ['nullable' => false, 'default' => \Magento\Framework\DB\Ddl\Table::TIMESTAMP_INIT_UPDATE,],
+                    'Update At'
+                )->setComment('Tabla de asistencia para Fiesta Fin de Año');
+                $installer->getConnection()->createTable($table);
+            }
+        }
+
         $installer->endSetup();
     }
 }

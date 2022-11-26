@@ -1,0 +1,231 @@
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">torinomotors_moduleajax_fiesta_listing.torinomotors_moduleajax_fiesta_listing_data_source</item>
+            <item name="deps" xsi:type="string">torinomotors_moduleajax_fiesta_listing.torinomotors_moduleajax_fiesta_listing_data_source</item>
+        </item>
+        <item name="spinner" xsi:type="string">spinner_columns</item>
+    </argument>
+    <dataSource name="torinomotors_moduleajax_fiesta_listing_data_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider</argument>
+            <argument name="name" xsi:type="string">torinomotors_moduleajax_fiesta_listing_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">id</argument>
+            <argument name="requestFieldName" xsi:type="string">id</argument>
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">TorinoMotors_ModuleAjax/js/grid/provider/fiesta</item>
+                    <item name="update_url" xsi:type="url" path="mui/index/render" />
+                    <item name="storageConfig" xsi:type="array">
+                        <item name="indexField" xsi:type="string">id</item>
+                    </item>
+                </item>
+            </argument>
+        </argument>
+    </dataSource>
+    <listingToolbar name="listing_top">
+        <bookmark name="bookmarks" />
+        <columnsControls name="columns_controls" />
+        <filters name="listing_filters">
+            <filterSelect name="store_id" provider="${ $.parentName }">
+                <settings>
+                    <options class="Magento\Store\Ui\Component\Listing\Column\Store\Options" />
+                    <caption translate="true">All Store</caption>
+                    <label translate="true">Store View</label>
+                    <dataScope>store_id</dataScope>
+                </settings>
+            </filterSelect>
+        </filters>
+        <paging name="listing_paging" />
+        <!-- <massaction name="listing_massaction">
+            <argument name="data" xsi:type="array">
+                <item name="data" xsi:type="array">
+                    <item name="selectProvider" xsi:type="string">torinomotors_moduleajax_fiesta_listing.torinomotors_moduleajax_fiesta_listing.spinner_columns.ids</item>
+                    <item name="displayArea" xsi:type="string">bottom</item>
+                    <item name="indexField" xsi:type="string">id</item>
+                </item>
+            </argument>
+            <action name="delete">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="type" xsi:type="string">delete</item>
+                        <item name="label" xsi:type="string" translate="true">Delete</item>
+                        <item name="url" xsi:type="url" path="ajaxrequestadmin/marcas/massdelete" />
+                        <item name="confirm" xsi:type="array">
+                            <item name="title" xsi:type="string" translate="true">Delete Marca</item>
+                            <item name="message" xsi:type="string" translate="true">Eliminar Marca</item>
+                        </item>
+                    </item>
+                </argument>
+            </action>
+        </massaction> -->
+    </listingToolbar>
+    <columns name="spinner_columns">
+        <selectionsColumn name="ids">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="indexField" xsi:type="string">id</item>
+                </item>
+            </argument>
+        </selectionsColumn>
+        <column name="id">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <!-- <item name="editor" xsi:type="array">
+                        <item name="editorType" xsi:type="string">text</item>
+                    </item> -->
+                    <item name="label" xsi:type="string" translate="true">ID</item>
+                </item>
+            </argument>
+        </column>
+        <column name="rh_id">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <!-- <item name="editor" xsi:type="array">
+                        <item name="editorType" xsi:type="string">text</item>
+                    </item> -->
+                    <item name="label" xsi:type="string" translate="true">RH Id</item>
+                </item>
+            </argument>
+        </column>
+        <column name="name">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <!-- <item name="editor" xsi:type="array">
+                        <item name="editorType" xsi:type="string">text</item>
+                    </item> -->
+                    <item name="label" xsi:type="string" translate="true">Nombre</item>
+                </item>
+            </argument>
+        </column>
+        <column name="qr_code" class="TorinoMotors\ModuleAjax\Ui\Component\Listing\Column\Fiesta\Thumbnail" component="Magento_Ui/js/grid/columns/thumbnail">
+            <settings>
+                <hasPreview>1</hasPreview>
+                <!-- <addField>true</addField> -->
+                <label translate="true">Qr</label>
+                <sortable>false</sortable>
+            </settings>
+        </column>
+        <column name="asistencia">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">TorinoMotors\ModuleAjax\Model\Source\AsistenciaSource</item>
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">select</item>
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/select</item>
+                    <item name="dataType" xsi:type="string">select</item>
+                    <item name="label" xsi:type="string" translate="true">Asistencia</item>
+                </item>
+            </argument>
+        </column>
+        <column name="num_invitados">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <!-- <item name="editor" xsi:type="array">
+                        <item name="editorType" xsi:type="string">text</item>
+                    </item> -->
+                    <item name="label" xsi:type="string" translate="true">Numero Invitados</item>
+                </item>
+            </argument>
+        </column>
+        <column name="qr_invitados" class="TorinoMotors\ModuleAjax\Ui\Component\Listing\Column\Fiesta\Thumbnail" component="Magento_Ui/js/grid/columns/thumbnail">
+            <settings>
+                <hasPreview>1</hasPreview>
+                <!-- <addField>true</addField> -->
+                <label translate="true">Qr Invitados</label>
+                <sortable>false</sortable>
+            </settings>
+        </column>
+        <!-- <actionsColumn name="actions" class="TorinoMotors\ModuleAjax\Ui\Component\Listing\Column\DistribuidorasActions">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="resizeEnabled" xsi:type="boolean">false</item>
+                    <item name="resizeDefaultWidth" xsi:type="string">107</item>
+                    <item name="indexField" xsi:type="string">dealer_place_id</item>
+                    <item name="sortOrder" xsi:type="number">180</item>
+                </item>
+            </argument>
+        </actionsColumn> -->
+    </columns>
+    <button name="test_button">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="actions" xsi:type="array">
+                    <item name="0" xsi:type="array">
+                        <item name="targetName" xsi:type="string">torinomotors_moduleajax_fiesta_listing.torinomotors_moduleajax_fiesta_listing.modal_add_cvs</item>
+                        <item name="actionName" xsi:type="string">openModal</item>
+                    </item>
+                </item>
+            </item>
+        </argument>
+        <settings>
+            <displayAsLink>false</displayAsLink>
+            <title><![CDATA[Test Button]]></title>
+        </settings>
+    </button>
+    <modal name="modal_add_cvs" component="TorinoMotors_ModuleAjax/js/modal/modal-component/modal-fiesta" >
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="onCancel" xsi:type="string">actionCancel</item>
+                <item name="options" xsi:type="array">
+                    <item name="buttons" xsi:type="array">
+                        <item name="0" xsi:type="array">
+                            <item name="text" xsi:type="string">Close</item>
+                            <item name="class" xsi:type="string">action-secondary</item>
+                            <item name="actions" xsi:type="array">
+                                <item name="0" xsi:type="string">actionCancel</item>
+                            </item>
+                        </item>
+                        <item name="1" xsi:type="array">
+                            <item name="text" xsi:type="string">Clear</item>
+                            <item name="class" xsi:type="string">action-secondary</item>
+                            <item name="actions" xsi:type="array">
+                                <item name="0" xsi:type="array">
+                                    <item name="targetName" xsi:type="string">torinomotors_moduleajax_fiesta_listing.torinomotors_moduleajax_fiesta_listing.modal_add_cvs.general.csv</item>
+                                    <item name="actionName" xsi:type="string">clear</item>
+                                </item>
+                            </item>
+                        </item>
+                        <item name="2" xsi:type="array">
+                            <item name="text" xsi:type="string">Done</item>
+                            <item name="class" xsi:type="string">action-primary</item>
+                            <item name="actions" xsi:type="array">
+                                <item name="0" xsi:type="array">
+                                    <item name="targetName" xsi:type="string">torinomotors_moduleajax_fiesta_listing.torinomotors_moduleajax_fiesta_listing.modal_add_cvs</item>
+                                    <item name="actionName" xsi:type="string">actionDone</item>
+                                </item>
+                            </item>
+                        </item>
+                    </item>
+                    <item name="title" xsi:type="string">Importar Data Fiesta GAM</item>
+                </item>
+            </item>
+        </argument>
+        <fieldset name="general">
+            <settings>
+                <label/>
+            </settings>
+            <field name="csv">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="dataType" xsi:type="string">string</item>
+                        <item name="source" xsi:type="string">Label	</item>
+                        <item name="label" xsi:type="string" translate="true">Load file csv</item>
+                        <item name="visible" xsi:type="boolean">true</item>
+                        <item name="formElement" xsi:type="string">fileUploader</item>
+                        <item name="previewTmpl" xsi:type="string">TorinoMotors_ModuleAjax/csv/upload_template</item>
+                        <item name="sortOrder" xsi:type="number">4</item>
+                        <item name="uploaderConfig" xsi:type="array">
+                            <item name="url" xsi:type="url" path="ajaxrequestadmin/fiesta/tempupload"/>
+                        </item>
+                        <item name='maxFileSize' xsi:type="string">2097152</item>
+                        <item name="notice" xsi:type="string"><![CDATA[Allowed file types:csv.]]></item>
+                    </item>
+                </argument>
+            </field>
+        </fieldset>
+    </modal>
+</listing>

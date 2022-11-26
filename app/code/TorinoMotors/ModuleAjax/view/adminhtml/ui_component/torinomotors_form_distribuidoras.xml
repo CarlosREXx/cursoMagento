@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category    Apps
+ * @package     Apps_RH
+ * @author      cjayala@grupoautofin.com
+ */
+-->
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">torinomotors_form_distribuidoras.torinomotors_form_distribuidoras_data_source</item>
+            <item name="deps" xsi:type="string">torinomotors_form_distribuidoras.torinomotors_form_distribuidoras_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">Información General</item>
+        <item name="config" xsi:type="array">
+            <item name="dataScope" xsi:type="string">data</item>
+            <item name="namespace" xsi:type="string">torinomotors_form_distribuidoras</item>
+        </item>
+        <item name="spinner" xsi:type="string">general_information</item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+    </argument>
+    <dataSource name="torinomotors_form_distribuidoras_data_source">
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+        <dataProvider class="TorinoMotors\ModuleAjax\Ui\DataSource\Distribuidoras\ModalDataSource" name="torinomotors_form_distribuidoras_data_source">
+            <settings>
+                <primaryFieldName>dealer_place_id</primaryFieldName>
+                <requestFieldName>dealer_place_id</requestFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <fieldset name="general_information">
+        <settings>
+            <label translate="true">Datos de Distribuidora</label>
+            <dataScope>credenciales</dataScope>
+        </settings>
+        <field name="dealer_place_id">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Id</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">dealer_place_id</item>
+                    <item name="dataScope" xsi:type="string">dealer_place_id</item>
+                </item>
+            </argument>
+        </field>
+    </fieldset>
+</form>

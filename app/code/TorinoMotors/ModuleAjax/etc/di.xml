@@ -11,17 +11,51 @@
                 <item name="torinomotors_moduleajax_marcas_listing_data_source" xsi:type="string">TorinoMotors\ModuleAjax\Model\ResourceModel\Marcas\Grid\Collection</item>
             </argument>
         </arguments>
+    </type>
+    <virtualType name="TorinoMotors\ModuleAjax\Model\ResourceModel\Fiesta\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">fiesta_gam_table</argument>
+            <argument name="resourceModel" xsi:type="string">TorinoMotors\ModuleAjax\Model\ResourceModel\Fiesta</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="torinomotors_moduleajax_fiesta_listing_data_source" xsi:type="string">TorinoMotors\ModuleAjax\Model\ResourceModel\Fiesta\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="TorinoMotors\ModuleAjax\Ui\Component\Listing\DataProvider">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">torinomotors_marcas_distribuidoralugares</argument>
+            <argument name="resourceModel" xsi:type="string">TorinoMotors\ModuleAjax\Model\ResourceModel\Distribuidoras</argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="torinomotors_moduleajax_distribuidoras_listing_data_source" xsi:type="string">TorinoMotors\ModuleAjax\Ui\Component\Listing\DataProvider</item>
+            </argument>
+        </arguments>
     </type>  
     <type name="TorinoMotors\ModuleAjax\Model\ImageUploader">
-    <arguments>
-        <argument name="baseTmpPath" xsi:type="string">tmp/img</argument>
-        <argument name="basePath" xsi:type="string">image/marcas</argument>
-        <argument name="allowedExtensions" xsi:type="array">
-            <item name="jpg" xsi:type="string">jpg</item>
-            <item name="jpeg" xsi:type="string">jpeg</item>
-            <item name="gif" xsi:type="string">gif</item>
-            <item name="png" xsi:type="string">png</item>
-        </argument>
-    </arguments>
-</type>
+        <arguments>
+            <argument name="baseTmpPath" xsi:type="string">tmp/img</argument>
+            <argument name="basePath" xsi:type="string">image/marcas</argument>
+            <argument name="allowedExtensions" xsi:type="array">
+                <item name="jpg" xsi:type="string">jpg</item>
+                <item name="jpeg" xsi:type="string">jpeg</item>
+                <item name="gif" xsi:type="string">gif</item>
+                <item name="png" xsi:type="string">png</item>
+            </argument>
+        </arguments>
+    </type>
+    <preference for="Magento\Cms\Controller\Index\Index" type="TorinoMotors\ModuleAjax\Controller\Home\Index" />
+    <!-- <type name="\Magento\Customer\Controller\Account\LoginPost">
+        <plugin name="redirect_custom_url" type="\TorinoMotors\ModuleAjax\Controller\Plugin\RedirectCustomUrl" sortOrder="1"/>
+    </type> -->
+    <!-- <type name="\Magento\Customer\Controller\Account\Index">
+        <plugin name="account" type="\TorinoMotors\ModuleAjax\Controller\Plugin\Account" sortOrder="1"/>
+    </type> -->
+    <preference for="Magento\Customer\Controller\Plugin\Account" type="\TorinoMotors\ModuleAjax\Controller\Plugin\Account" />
 </config>

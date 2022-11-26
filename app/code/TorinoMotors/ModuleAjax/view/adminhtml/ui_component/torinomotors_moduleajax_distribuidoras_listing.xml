@@ -5,30 +5,24 @@
             <item name="deps" xsi:type="string">torinomotors_moduleajax_distribuidoras_listing.torinomotors_moduleajax_distribuidoras_listing_data_source</item>
         </item>
         <item name="spinner" xsi:type="string">spinner_columns</item>
-        <item name="buttons" xsi:type="array">
-            <item name="add" xsi:type="array">
-                <item name="name" xsi:type="string">add</item>
-                <item name="label" xsi:type="string" translate="true">Agregar Nuevo Registro</item>
-                <item name="class" xsi:type="string">primary</item>
-                <item name="url" xsi:type="string">*/*/add</item>
-            </item>
-        </item>
     </argument>
     <dataSource name="torinomotors_moduleajax_distribuidoras_listing_data_source">
         <argument name="dataProvider" xsi:type="configurableObject">
-            <argument name="class" xsi:type="string">TorinoMotors\ModuleAjax\Ui\Component\Listing\DataProvider</argument>
+            <argument name="class" xsi:type="string">Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider</argument>
             <argument name="name" xsi:type="string">torinomotors_moduleajax_distribuidoras_listing_data_source</argument>
             <argument name="primaryFieldName" xsi:type="string">dealer_place_id</argument>
-            <argument name="requestFieldName" xsi:type="string">dealer_place_id</argument>
+            <argument name="requestFieldName" xsi:type="string">id</argument>
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <item name="component" xsi:type="string">Magento_Ui/js/grid/provider</item>
+                    <item name="provider" xsi:type="string">torinomotors_moduleajax_marcas_listing.torinomotors_moduleajax_marcas_listing_data_source</item>
+                    <item name="component" xsi:type="string">TorinoMotors_ModuleAjax/js/grid/provider/distribuidoras</item>
                     <item name="update_url" xsi:type="url" path="mui/index/render" />
-                    <item name="filter_url_params" xsi:type="array">
-                        <item name="marca_id" xsi:type="string">*</item>
-                    </item>
                     <item name="storageConfig" xsi:type="array">
                         <item name="indexField" xsi:type="string">dealer_place_id</item>
+                    </item>
+                    <item name="imports" xsi:type="array">
+                        <item name="params.recordId" xsi:type="string">torinomotors_moduleajax_marcas_listing.torinomotors_moduleajax_marcas_listing.modal_distribuidoras:recordId</item>
+                        <item name="rootSelector" xsi:type="string">torinomotors_moduleajax_marcas_listing.torinomotors_moduleajax_marcas_listing.modal_distribuidoras:rootSelector</item>
                     </item>
                 </item>
             </argument>
@@ -123,15 +117,69 @@
                 </item>
             </argument>
         </column>
-        <!-- <actionsColumn name="actions" class="TorinoMotors\ModuleAjax\Ui\Component\Listing\Column\MarcasActions">
+        <actionsColumn name="actions" class="TorinoMotors\ModuleAjax\Ui\Component\Listing\Column\DistribuidorasActions">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="resizeEnabled" xsi:type="boolean">false</item>
                     <item name="resizeDefaultWidth" xsi:type="string">107</item>
-                    <item name="indexField" xsi:type="string">marca_id</item>
+                    <item name="indexField" xsi:type="string">dealer_place_id</item>
                     <item name="sortOrder" xsi:type="number">180</item>
                 </item>
             </argument>
-        </actionsColumn> -->
+        </actionsColumn>
     </columns>
+    <modal name="modal_distribuidoras_form" component="TorinoMotors_ModuleAjax/js/modal/modal-component/distribuidoras" >
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="onCancel" xsi:type="string">actionCancel</item>
+                <item name="options" xsi:type="array">
+                    <item name="buttons" xsi:type="array">
+                        <item name="0" xsi:type="array">
+                            <item name="text" xsi:type="string">Close</item>
+                            <item name="class" xsi:type="string">action-secondary</item>
+                            <item name="actions" xsi:type="array">
+                                <item name="0" xsi:type="string">actionCancel</item>
+                            </item>
+                        </item>
+                        <item name="1" xsi:type="array">
+                            <item name="text" xsi:type="string">Refresh</item>
+                            <item name="class" xsi:type="string">action-secondary</item>
+                            <item name="actions" xsi:type="array">
+                                <item name="0" xsi:type="string">forceReload</item>
+                            </item>
+                        </item>
+                        <!-- <item name="2" xsi:type="array">
+                            <item name="text" xsi:type="string">Add</item>
+                            <item name="class" xsi:type="string">action-primary</item>
+                            <item name="actions" xsi:type="array">
+                                <item name="0" xsi:type="array">
+                                    <item name="targetName" xsi:type="string">oficina_refiere_notas_listing.oficina_refiere_notas_listing.modal_create_nota</item>
+                                    <item name="actionName" xsi:type="string">openModal</item>
+                                </item>
+                            </item>
+                        </item> -->
+                    </item>
+                    <item name="title" xsi:type="string">Editar Distribuidora</item>
+                </item>
+            </item>
+        </argument>
+        <insertForm name="torinomotors_form_distribuidoras">
+        <settings>
+            <dataLinks>
+                <exports>false</exports>
+                <imports>true</imports>
+            </dataLinks>
+            <formSubmitType>ajax</formSubmitType>
+            <renderUrl path="mui/index/render">
+                <param name="handle">torinomotors_form_distribuidoras</param>
+                <param name="buttons">0</param>
+                <param name="dealer_place_id">3</param>
+            </renderUrl>
+            <loading>true</loading>
+            <autoRender>true</autoRender>
+            <toolbarContainer>${ $.parentName }</toolbarContainer>
+            <ns>torinomotors_form_distribuidoras</ns>
+        </settings>
+    </insertForm>
+    </modal>
 </listing>

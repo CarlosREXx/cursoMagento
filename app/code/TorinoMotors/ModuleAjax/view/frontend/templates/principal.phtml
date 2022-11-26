@@ -1,107 +1,42 @@
-    <div class="row clearfix">
-        <div class="col-md-12 column">
-            <form name="form_height" id="form_height" class="row">
-                <div class="col-md">
-                    <select name="Numero" id="selectNum">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-<<<<<<< HEAD
-=======
-                        
->>>>>>> develop
-                    </select>
-                </div>
-                <div class="col-md">
-                    <select name="Marca" id="selectMarca">
-                    <option disabled='disabled' selected='true'>Marca</option>
-                    </select>
-                </div> 
-            </form>
-        </div>
-    </div>
-    <?php 
-        $motonetas = $block->motosData("5");
-    ?>
-    <div class="card-body mt-3">
-        <div class="lightSlider masonry-container" data-item="4" data-item-md="2"
-            data-item-sm="1" data-auto="true" data-loop="true" data-pager="false">
-            <?php  for($i = 0; $i < count($motonetas[0]); $i++): ?>
-            <div class="post-portfolio">
-                <figure class="bg-accent-3">
-                    <div class="img-wrapper">
-                        <a href="#"><img src="http://torinomotors.mx/pub/media/catalog/product<?php echo $motonetas[1][$i] ?>" alt="/"></a>
-                    </div>
+ <?php
+ /** @var TorinoMotors\ModuleAjax\Block\Index $block */
+ ?>
 
-                </figure>
-                <p class="text-center doradouniv-2"><?= $motonetas[0][$i] ?></p>
+ <?php
+    $objctManager = \Magento\Framework\App\ObjectManager::getInstance();
+    $remote = $objctManager->get('Magento\Framework\HTTP\PhpEnvironment\RemoteAddress');
+ ?>
+ <style>
+    .loading-mask{
+    position: fixed;
+    z-index: 100000;
+    height: 100%;
+    background: rgba(0,0,0, 0.5);
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+}
+.loading-mask .loader p{
+    text-align: center;
+    color: rgba(255,255,255, 0.65);
+}
+ </style>
+    <div class="row m-auto">
+        <div class="col-12 m-auto d-flex justify-content-center mt-3">
+            <input type="hidden" id="value_hidden" value="<?= $block->getParamRh() ?>">
+            <button type="button" id="generate_pdf" class="btn btn-warning">Generar Boleto</button>
+        </div>
+        <div class="col-12 m-auto d-none qr-content mt-5 justify-content-center">
+            <div class="" style="height: 300px; width: 300px;">
+                <img class="img-qr img-fluid" src="" alt="" class="img-fluid">
             </div>
-            <?php endfor ?>
+        </div>
+        <div class="col-12 m-auto d-flex justify-content-center mt-3">
+            <a href="<?= $block->getBaseUrl().'ajaxrequest/logout/index' ?>">Cerrar Sesión</a>
         </div>
     </div>
 
-    <br>
-    <?php $motocarro = $block->motosData("11"); ?>
-    <div class="card-body mt-3">
-        <div class="lightSlider masonry-container" data-item="4" data-item-md="2"
-            data-item-sm="1" data-auto="true" data-loop="true" data-pager="false">
-            <?php  for($i = 0; $i < count($motocarro[0]); $i++): ?>
-            <div class="post-portfolio">
-                <figure class="bg-accent-3">
-                    <div class="img-wrapper">
-                        <a href="#"><img src="http://torinomotors.mx/pub/media/catalog/product<?php echo $motocarro[1][$i] ?>" alt="/"></a>
-                    </div>
-
-                </figure>
-                <p class="text-center doradouniv-2"><?= $motocarro[0][$i] ?></p>
-            </div>
-            <?php endfor ?>
-        </div>
-    </div>
-
-    <p><?php $custom = $block->motosData("10", "8"); print_r($custom[0]) ?></p>
-
-    <br>
-
-    <p><?php print_r($custom[1]) ?></p>
-
-    <br>
-
-    <p><?php $urbanas = $block->motosData("6", "7"); print_r($urbanas[0]) ?></p>
-
-    <br>
-
-    <p><?php print_r($urbanas[1]) ?></p>
-
-    <br>
-
-    <p><?php $deportivas = $block->motosData("9"); print_r($deportivas[0]) ?></p>
-
-    <br>
-
-    <p><?php print_r($deportivas[1]) ?></p>
-
-    <br>
-
-    <p><?php $motocarro = $block->motosData("11"); print_r($motocarro[0]) ?></p>
-
-    <br>
-
-    <p><?php print_r($motocarro[1]) ?></p>
-
-    <br>
-
-<<<<<<< HEAD
-    <p><?php print_r($block->torinoData()) ?></p>
-=======
-    <p><?php //print_r($block->torinoData()) ?></p>
-    <p><?php //print_r($block->torinoData()) ?></p>
->>>>>>> develop
 
 <script type="text/x-magento-init">
 {

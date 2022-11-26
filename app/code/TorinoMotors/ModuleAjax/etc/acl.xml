@@ -8,6 +8,8 @@
                         <resource id="TorinoMotors_ModuleAjax::marcasautos" title="Marcas para autos" />
                     </resource>
                 </resource>
+                <resource id="TorinoMotors_ModuleAjax::fiesta_gam" title="FiestaGam">
+                </resource>
             </resource>
         </resources>
     </acl>

@@ -1,0 +1,12 @@
+<page layout="principal_layout" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <!-- <update handle="principal_head_blocks"/> -->
+    <head>
+        <title>Principal</title>
+    </head> 
+
+    <body>
+        <referenceContainer name="content">
+            <block class="Magento\Customer\Block\Form\Register" name="ajaxrequest_registro" template="Magento_Customer::form/register.phtml" />
+        </referenceContainer>
+    </body>
+</page>

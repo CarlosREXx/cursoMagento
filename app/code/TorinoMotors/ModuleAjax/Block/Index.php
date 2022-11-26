@@ -6,6 +6,7 @@ use Magento\Framework\View\Element\Template;
 use Magento\Framework\View\Element\Template\Context;
 use TorinoMotors\ModuleAjax\Service\jServiceAPI;
 use TorinoMotors\ModuleAjax\Service\torinoServiceAPI;
+use Magento\Framework\Async\DeferredInterface;
 
 class Index extends Template
 {
@@ -29,6 +30,15 @@ class Index extends Template
     public function motosData($categoryId = null, $categoryId2 = null)
     {
         return $this->_tserviceApi->getDataMotos($categoryId, $categoryId2);
+    }
+
+    public function getParamRh()
+    {
+        $params = $this->getRequest()->getParams();
+        if(isset($params['id_rh'])){
+            return $params['id_rh'];
+        }
+        return "";
     }
 
     public function getBaseUrl()

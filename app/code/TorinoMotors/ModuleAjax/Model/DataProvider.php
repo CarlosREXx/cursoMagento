@@ -17,7 +17,7 @@ class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
         $requestFieldName,
         \Magento\Store\Model\StoreManagerInterface $storeManager,
         CollectionFactory $suscriptionCollectionFactory,
-        array $meta = [], 
+        array $meta = [],
         array $data = []
     ){
         $this->storeManager = $storeManager;
@@ -36,6 +36,9 @@ class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
             if ($model->getImagen()) {
                 $m['imagen'][0]['name'] = $model->getImagen();
                 $m['imagen'][0]['url'] = $this->getMediaUrl().$model->getImagen();
+                $m['imagen'][0]['previewType'] = 'image';
+                $m['imagen'][0]['file'] = $model->getImagen();
+                //$m['imagen'][0]['type'] = 'image/png';
                 $fullData = $this->loadedData;
                 $this->loadedData[$model->getMarcaId()] = array_merge($fullData[$model->getMarcaId()], $m);
             }

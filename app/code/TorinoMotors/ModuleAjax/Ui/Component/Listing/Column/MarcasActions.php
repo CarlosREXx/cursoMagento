@@ -56,18 +56,16 @@ class MarcasActions extends \Magento\Ui\Component\Listing\Columns\Column
                                     ]
                                     ),
                                 "label" => __("Delete"),
+                                'confirm' => [
+                                    'title' => __('Borrar la marca {0}(ID:{1})', $item['marca_name'], $item['marca_id']),
+                                    'message' => __('Estas seguro de querer borrar {0}?', $item['marca_name'])]
                                 ],
                             'LugaresIndex' => [
-                                'href' => $this->urlBuilder->getUrl(
-                                    static::URL_LUGARES_PATH,
-                                    [
-                                        "marca_id" => $item["marca_id"],
-                                    ],
-                                    ),
-                                // 'callback' => [
-                                //     'provider' => 'oficina_refiere_listing.oficina_refiere_listing.modal_notas',
-                                //     'target' => 'test_modal'
-                                // ],
+                                'href' => '',
+                                'callback' => [
+                                     'provider' => 'torinomotors_moduleajax_marcas_listing.torinomotors_moduleajax_marcas_listing.modal_distribuidoras',
+                                     'target' => 'openModal'
+                                 ],
                                 'label' => __('Ver Lugares')
                             ],
                         ];
