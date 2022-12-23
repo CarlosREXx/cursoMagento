@@ -11,8 +11,11 @@
         "sort-packages": true
     },
     "require": {
+        "dva/module-extended-elements": "^1.1",
+        "magento/composer-root-update-plugin": "~1.0",
         "magento/product-community-edition": "2.4.0",
-        "magento/composer-root-update-plugin": "~1.0"
+        "mageplaza/module-core": "^1.5",
+        "mageplaza/module-smtp": "^4.7"
     },
     "require-dev": {
         "allure-framework/allure-phpunit": "~1.2.0",
@@ -66,12 +69,20 @@
     },
     "version": "2.4.0",
     "minimum-stability": "stable",
-    "repositories": [
-        {
+    "repositories": {
+        "0": {
             "type": "composer",
             "url": "https://repo.magento.com/"
+        },
+        "mageplaza": {
+            "type": "composer",
+            "url": "https://repo.mageplaza.com"
+        },
+        "dva":{
+            "type": "composer",
+            "url": "http://magento-repo.divisionautomotriz.com/"
         }
-    ],
+    },
     "extra": {
         "magento-force": "override"
     }
