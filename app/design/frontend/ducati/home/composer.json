@@ -1,0 +1,23 @@
+{
+    "name": "magento/theme-frontend-ducati-home",
+    "description": "Custom theme for Ducati",
+    "config": {
+        "sort-packages": true
+    },
+    "require": {
+        "ducati/module-themeoption": "~1.0.0",
+        "php": "~7.1.3||~7.3.0",
+        "magento/framework": "*",
+        "magento/theme-frontend-blank": "*"
+    },
+    "type": "magento2-theme",
+    "license": [
+        "OSL-3.0",
+        "AFL-3.0"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ]
+    }
+}

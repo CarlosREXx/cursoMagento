@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:helloworld:Magento_Widget:etc/widget.xsd">
+    <widget class="TorinoMotors\ModuleAjax\Block\Widget\Gracias" id="landings_gracias_cotiza">
+        <label>Gracias Cotiza</label>
+        <description>Seccion de Contacto para páginas Landing</description>
+        <parameters>
+            <parameter name="enabled_widget" xsi:type="block" visible="true" sort_order="100">
+                <label translate="true">Enabled Widget Gracias</label>
+                <block class="Dva\ExtendedElements\Block\Adminhtml\Widget\Type\ExtendedParameterType">
+                    <data>
+                        <item name="elementType" xsi:type="string">switcher</item>
+                    </data>
+                </block>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>

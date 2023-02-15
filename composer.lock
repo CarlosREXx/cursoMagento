@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0d657b4ca9de68c04d8c6c7b33e7942f",
+    "content-hash": "99826bccd7413ca137b472f80b6736a1",
     "packages": [
         {
             "name": "2tvenom/cborencode",
@@ -1166,6 +1166,43 @@
             "description": "Dotmailer integration for Magento 2 Open Source"
         },
         {
+            "name": "dva/module-extended-elements",
+            "version": "1.1.8",
+            "source": {
+                "type": "git",
+                "url": "http://v-tfs:8080/tfs/Portales/MagentoRepository/_git/dva-module-extended-elements",
+                "reference": "15cecaa5bda7f5e588fc8efe10f41dfa16714e88"
+            },
+            "require": {
+                "magento/framework": "*",
+                "magento/module-config": "*",
+                "magento/module-ui": "*",
+                "magento/module-widget": "*",
+                "php": "^7.3.0"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "psr-4": {
+                    "Dva\\ExtendedElements\\": ""
+                },
+                "files": [
+                    "registration.php"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Cristian Ayala",
+                    "email": "cjayala@grupoautofin.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Define controladores para hacer uso de uiComponents como parametros para widgets y como elementos en system configuration",
+            "time": "2022-04-29T18:40:45+00:00"
+        },
+        {
             "name": "elasticsearch/elasticsearch",
             "version": "v7.7.0",
             "source": {
@@ -2281,6 +2318,7 @@
                 "console",
                 "laminas"
             ],
+            "abandoned": "laminas/laminas-cli",
             "time": "2019-12-31T16:31:45+00:00"
         },
         {
@@ -15313,6 +15351,105 @@
             "time": "2020-05-19T23:25:07+00:00"
         },
         {
+            "name": "mageplaza/module-core",
+            "version": "1.5.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mageplaza/module-core.git",
+                "reference": "f105e4b5a90a92628f246265380bd8e3d6e26348"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mageplaza/module-core/zipball/f105e4b5a90a92628f246265380bd8e3d6e26348",
+                "reference": "f105e4b5a90a92628f246265380bd8e3d6e26348",
+                "shasum": ""
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Mageplaza\\Core\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Mageplaza",
+                    "email": "support@mageplaza.com",
+                    "homepage": "https://www.mageplaza.com",
+                    "role": "Technical Support"
+                }
+            ],
+            "description": "Mageplaza Core for Magento 2",
+            "time": "2022-12-15T02:58:32+00:00"
+        },
+        {
+            "name": "mageplaza/module-smtp",
+            "version": "4.7.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mageplaza/magento-2-smtp.git",
+                "reference": "fc7930bea186120bf1f40da00cf96eb19c71b875"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mageplaza/magento-2-smtp/zipball/fc7930bea186120bf1f40da00cf96eb19c71b875",
+                "reference": "fc7930bea186120bf1f40da00cf96eb19c71b875",
+                "shasum": ""
+            },
+            "require": {
+                "mageplaza/module-core": "^1.4.12"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Mageplaza\\Smtp\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Mageplaza",
+                    "email": "support@mageplaza.com",
+                    "homepage": "https://www.mageplaza.com",
+                    "role": "Technical Support"
+                }
+            ],
+            "description": "SMTP Extension for Magento 2 helps the owner of store simply install SMTP (Simple Mail Transfer Protocol) server which transmits the messages into codes or numbers",
+            "keywords": [
+                "Facebook ADS",
+                "Marketing Automation",
+                "Messenger",
+                "email",
+                "email marketing",
+                "email settings",
+                "facebook",
+                "gmail smtp",
+                "google ads",
+                "magento 2",
+                "magento 2 smtp",
+                "magento smtp",
+                "mageplaza",
+                "sms",
+                "sms marketing",
+                "smtp",
+                "web push notification",
+                "whatsapp"
+            ],
+            "time": "2022-12-06T01:48:00+00:00"
+        },
+        {
             "name": "monolog/monolog",
             "version": "1.25.4",
             "source": {
@@ -15794,6 +15931,60 @@
                 "pre-processing"
             ],
             "time": "2019-12-26T19:37:31+00:00"
+        },
+        {
+            "name": "php-ai/php-ml",
+            "version": "0.9.0",
+            "source": {
+                "type": "git",
+                "url": "https://gitlab.com/php-ai/php-ml.git",
+                "reference": "fd8b70629e16ed67307fe150ba25738449b9a6b2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v4/projects/php-ai%2Fphp-ml/repository/archive.zip?sha=fd8b70629e16ed67307fe150ba25738449b9a6b2",
+                "reference": "fd8b70629e16ed67307fe150ba25738449b9a6b2",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.2"
+            },
+            "require-dev": {
+                "phpbench/phpbench": "^0.16.0",
+                "phpstan/phpstan": "^0.12",
+                "phpstan/phpstan-phpunit": "^0.12",
+                "phpstan/phpstan-strict-rules": "^0.12",
+                "phpunit/phpunit": "^8.0",
+                "symplify/easy-coding-standard": "^6.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Phpml\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Arkadiusz Kondas",
+                    "email": "arkadiusz.kondas@gmail.com"
+                }
+            ],
+            "description": "PHP-ML - Machine Learning library for PHP",
+            "homepage": "https://github.com/php-ai/php-ml",
+            "keywords": [
+                "Neural network",
+                "artificial intelligence",
+                "computational learning theory",
+                "data science",
+                "feature extraction",
+                "machine learning",
+                "pattern recognition"
+            ],
+            "time": "2020-05-27T09:52:59+00:00"
         },
         {
             "name": "php-amqplib/php-amqplib",
@@ -16955,6 +17146,7 @@
                 "symfony",
                 "words"
             ],
+            "abandoned": "EnglishInflector from the String component",
             "time": "2020-05-20T17:43:50+00:00"
         },
         {
@@ -18188,6 +18380,7 @@
                 "idna",
                 "punycode"
             ],
+            "abandoned": true,
             "time": "2016-11-16T10:37:54+00:00"
         },
         {
@@ -18641,12 +18834,12 @@
             "version": "1.1.8",
             "source": {
                 "type": "git",
-                "url": "https://github.com/allure-framework/allure-php-commons.git",
+                "url": "https://github.com/allure-framework/allure-php-api.git",
                 "reference": "5ae2deac1c7e1b992cfa572167370de45bdd346d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/allure-framework/allure-php-commons/zipball/5ae2deac1c7e1b992cfa572167370de45bdd346d",
+                "url": "https://api.github.com/repos/allure-framework/allure-php-api/zipball/5ae2deac1c7e1b992cfa572167370de45bdd346d",
                 "reference": "5ae2deac1c7e1b992cfa572167370de45bdd346d",
                 "shasum": ""
             },
@@ -19414,6 +19607,7 @@
                 }
             ],
             "description": "Guzzle6 transport for Vault PHP client",
+            "abandoned": true,
             "time": "2019-03-10T06:17:37+00:00"
         },
         {
@@ -20758,6 +20952,7 @@
             "keywords": [
                 "diff"
             ],
+            "abandoned": true,
             "time": "2018-02-15T16:58:55+00:00"
         },
         {
@@ -21620,6 +21815,7 @@
             "keywords": [
                 "tokenizer"
             ],
+            "abandoned": true,
             "time": "2020-06-27T06:36:25+00:00"
         },
         {
@@ -22179,6 +22375,7 @@
             ],
             "description": "FinderFacade is a convenience wrapper for Symfony's Finder component.",
             "homepage": "https://github.com/sebastianbergmann/finder-facade",
+            "abandoned": true,
             "time": "2020-02-08T06:07:58+00:00"
         },
         {
@@ -23032,6 +23229,7 @@
             ],
             "description": "The classes contained within this repository extend the standard DOM to use exceptions at all occasions of errors instead of PHP warnings or notices. They also add various custom methods and shortcuts for convenience and to simplify the usage of DOM.",
             "homepage": "https://github.com/theseer/fDOMDocument",
+            "abandoned": true,
             "time": "2017-06-30T11:53:12+00:00"
         },
         {
@@ -23141,12 +23339,12 @@
             "version": "1.9.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/webmozart/assert.git",
+                "url": "https://github.com/webmozarts/assert.git",
                 "reference": "bafc69caeb4d49c39fd0779086c03a3738cbb389"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webmozart/assert/zipball/bafc69caeb4d49c39fd0779086c03a3738cbb389",
+                "url": "https://api.github.com/repos/webmozarts/assert/zipball/bafc69caeb4d49c39fd0779086c03a3738cbb389",
                 "reference": "bafc69caeb4d49c39fd0779086c03a3738cbb389",
                 "shasum": ""
             },

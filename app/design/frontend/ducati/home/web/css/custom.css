@@ -1,0 +1,232 @@
+/* ----------------------------------------------------------------
+	Custom CSS
+
+	Add all your Custom Styled CSS here for New Styles or
+	Overwriting Default Theme Styles for Better Handling Updates
+-----------------------------------------------------------------*/
+
+@font-face {
+    font-family: 'Ducati Style Cond XBold';
+    src: url('../fonts/DucatiStyleCond-XBold.woff2') format('woff2');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Ducati Style Ext';
+    src: url('../fonts/DucatiStyleExt-Bold.woff2') format('woff2');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Ducati Style XBold';
+    src: url('../fonts/DucatiStyle-XBold.woff2') format('woff2');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Ducati Style';
+    src: url('../fonts/DucatiStyle-Bold.woff2') format('woff2');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Ducati Style Cond';
+    src: url('../fonts/DucatiStyleCond-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Ducati Style';
+    src: url() format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Ducati Style Cond';
+    src: url('../fonts/OpenSans-ExtraBold.ttf');
+}
+
+@font-face {
+    font-family: 'Ducati Style Ext';
+    src: url('../fonts/DucatiStyleExt-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+body {
+	font-family: 'Ducati Style Cond';
+}
+
+.menu-link {
+    display: block;
+    line-height: 22px;
+    padding: 14px 5px;
+    color: #000000;
+    font-weight: 900!important;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-family: 'Ducati Style Cond';
+}
+
+.menu-container > .menu-item:not(:first-child) {
+    margin-left: 25px;
+}
+
+.dark #footer, #footer.dark {
+    color: rgba(255,255,255,0.75);
+    background-color: #0f0f0f;
+    border-top-color: rgba(255,255,255,0.15);
+}
+
+#footer {
+    border-top: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Ducati Style Ext';
+}
+
+.button {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+    white-space: nowrap;
+    margin: 5px;
+    padding: 8px 22px;
+    font-size: 8px;
+    line-height: 24px;
+    background-color: #1ABC9C;
+    color: #FFF;
+    font-weight: 700;
+    text-transform: none;
+    letter-spacing: 1px;
+    border: none;
+    text-shadow: 1px 1px 1px rgb(0 0 0 / 20%);
+    font-family: 'Ducati Style Cond';
+}
+
+.modelos h3{
+    font-family: 'Ducati Style Ext';
+    font-weight: 400;
+    font-size: 18px;
+    color: #666;
+    margin: 5px 10px 10px;
+}
+
+.portfolio-ajax-modal {
+    max-width: 500px;
+}
+
+.gris-ducati {
+    color: #666!important;
+}
+
+/* Border Form Design
+---------------------------------------------------------------------------- */
+
+.border-form-control {
+    height: 48px;
+    padding: 8px 4px;
+    font-size: 21px;
+    letter-spacing: 1px;
+    background-color: transparent !important;
+    border-top: transparent;
+    border-right: transparent;
+    border-left: transparent;
+    border-bottom-width: 1px #666666;
+    font-family: 'Ducati Style Ext';
+}
+
+.border-form-control::-moz-placeholder { font-weight: 300; }
+.border-form-control:-ms-input-placeholder { font-weight: 300; }
+.border-form-control::-webkit-input-placeholder { font-weight: 300; }
+
+textarea.border-form-control {
+    resize: none;
+    overflow: hidden;
+    word-wrap: break-word;
+}
+
+.page-menu-item.current > a {
+     border-bottom: 1px solid #FFFFFF!important;
+     background-color: #CB1517!important;
+}
+
+.page-menu-item > a {
+    border-radius: 1px;
+}
+
+.button-red:not(.button-border) {
+    background-color: #CB1517 !important;
+}
+
+.button {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+    white-space: nowrap;
+    margin: 5px;
+    padding: 8px 22px;
+    font-size: 12px;
+    line-height: 24px;
+    background-color: #1ABC9C;
+    color: #FFF;
+    font-weight: 700;
+    text-transform: none;
+    letter-spacing: 1px;
+    border: none;
+    text-shadow: 1px 1px 1px rgb(0 0 0 / 20%);
+    font-family: 'Ducati Style Ext';
+}
+
+.transparent-header.floating-header .container {
+    border-radius: 3px;
+    box-shadow:
+             0.2em 0.2em 0.5em rgba(0,0,0,0.3);
+}
+
+.sticky-header #header-wrap {
+    background-color: transparent;
+}
+
+.grid-inner {
+    box-shadow:
+             0.2em 0.2em 0.5em rgba(0,0,0,0.3);
+}
+
+.entry {
+    box-shadow:
+             box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+.entry::after {
+    margin-top: 0px;
+}
+
+
+@media (max-width: 600px) {
+    .mobil-menu {
+        top: 5px;
+        z-index: 9999;
+        display: flex;
+        background-color: #FFFFFF;
+        width: 95%;
+    }
+}

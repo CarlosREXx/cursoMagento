@@ -42,5 +42,13 @@
             action="ajaxrequestadmin/fiesta/"
             resource="TorinoMotors_ModuleAjax::fiesta_gam"
         />
+        <add
+            id="TorinoMotors_ModuleAjax::test_collection"
+            title="Test Collection"
+            module="TorinoMotors_ModuleAjax"
+            sortOrder="20"
+            action="ajaxrequestadmin/test/"
+            resource="TorinoMotors_ModuleAjax::test_collection"
+        />
     </menu>
 </config>

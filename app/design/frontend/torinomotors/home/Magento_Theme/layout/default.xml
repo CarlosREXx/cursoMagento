@@ -11,6 +11,8 @@
             <block class="Magento\Cms\Block\Block" name="cms_block" cacheable="false"></block>
         </referenceContainer>
         <referenceContainer name="page.main.title" remove="true" />
+        <referenceContainer name="header.container" remove="true" />
+        <referenceContainer name="footer-container" remove="true" />
         <referenceBlock name="breadcrumbs" remove="true"/>
         <referenceBlock name="navigation.sections" remove="true" />
         <referenceBlock name="authentication-popup" remove="true" />

@@ -1,47 +1,20 @@
- <?php
- /** @var TorinoMotors\ModuleAjax\Block\Index $block */
- ?>
+<style>
+    .example-popup {
+        position: relative;
+        background: #FFF;
+        padding: 20px;
+        width: auto;
+        max-width: 500px;
+        margin: 20px auto;
+    }
+</style>
+<div id="ajax-content" class="example-popup">
+    <p>Content</p>
+</div>
 
- <?php
-    $objctManager = \Magento\Framework\App\ObjectManager::getInstance();
-    $remote = $objctManager->get('Magento\Framework\HTTP\PhpEnvironment\RemoteAddress');
- ?>
- <style>
-    .loading-mask{
-    position: fixed;
-    z-index: 100000;
-    height: 100%;
-    background: rgba(0,0,0, 0.5);
-    display: flex;
-    align-items: center;
-    width: 100%;
-    justify-content: center;
-}
-.loading-mask .loader p{
-    text-align: center;
-    color: rgba(255,255,255, 0.65);
-}
- </style>
-    <div class="row m-auto">
-        <div class="col-12 m-auto d-flex justify-content-center mt-3">
-            <input type="hidden" id="value_hidden" value="<?= $block->getParamRh() ?>">
-            <button type="button" id="generate_pdf" class="btn btn-warning">Generar Boleto</button>
-        </div>
-        <div class="col-12 m-auto d-none qr-content mt-5 justify-content-center">
-            <div class="" style="height: 300px; width: 300px;">
-                <img class="img-qr img-fluid" src="" alt="" class="img-fluid">
-            </div>
-        </div>
-        <div class="col-12 m-auto d-flex justify-content-center mt-3">
-            <a href="<?= $block->getBaseUrl().'ajaxrequest/logout/index' ?>">Cerrar Sesión</a>
-        </div>
-    </div>
-
-
-<script type="text/x-magento-init">
-{
-    "body": {
-            "principal":{}
-        }
-}
+<script>
+    debugger;
+        let cookieContent = document.getElementsById('cookie-status');
+        cookieContent.innerHTML = '';
+        cookieContent.innerHTML = '<button title="Close (Esc)" type="button" class="mfp-close">×</button>';
 </script>

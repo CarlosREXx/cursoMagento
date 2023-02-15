@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="page.wrapper">
+            <block class="Magento\Framework\View\Element\Template" name="ducatihome.topbar" template="TorinoMotors_Themeoption::topbar.phtml" before="ducati.header" cacheable="false"/>
+            <container name="ducati.header" 
+                    htmlId="header" 
+                    htmlClass="transparent-header floating-header header-size-custom mt-5" 
+                    htmlTag="header" 
+                    before="-">
+                <block class="Magento\Framework\View\Element\Template" name="ducatihome.header" template="TorinoMotors_Themeoption::header.phtml" cacheable="false"/>
+            </container>
+            <container name="ducati.footer" htmlId="footer" htmlClass="dark" htmlTag="footer" after="-">
+                <block class="Magento\Framework\View\Element\Template" name="ducatihome.footer" template="TorinoMotors_Themeoption::footer.phtml" cacheable="false"/>
+            </container>
+        </referenceContainer>
+        <referenceContainer name="header.container" remove="true" />
+        <referenceContainer name="footer-container" remove="true" />
+        <referenceContainer name="page.main.title" remove="true" />
+        <!-- <referenceBlock name="navigation.sections" remove="true" /> -->
+        <referenceBlock name="authentication-popup" remove="true" />
+        <referenceBlock name="navigation.sections" remove="true" />
+        <referenceBlock name="breadcrumbs" remove="true" />
+    </body>
+</page>

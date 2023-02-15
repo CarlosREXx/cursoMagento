@@ -1,0 +1,55 @@
+<?php /** @var \TorinoMotors\ModuleAjax\Block\Widget\Gracias $block */ ?>
+<style>
+    .example-popup {
+        position: relative;
+        background: #FFF;
+        padding: 20px;
+        width: auto;
+        max-width: 500px;
+        margin: 20px auto;
+    }
+</style>
+<div class="gracias">
+    <div class="agradecimento text-center">
+        <h4>¡Gracias, hemos recibido tus datos correctamente!</h4>
+        <p>En breve un Asesor se pondrá en contacto contigo.</p>
+        <a class="btn btn-consulta" href="<?= $block->getBaseUrl() ?>landing-cotiza-seminuevo">Volver al sitio web</a>
+        <a href="#" class="ajax-popup-link">Show inline popup</a>
+    </div>
+</div>
+
+<script>
+    require(['jquery', 'mfpopup', 'flexslider', 'jgestures', 'jquery-ui', 'jquery-mouse', 'modernizr', 'domReady!'], function($){
+        $('.ajax-popup-link').magnificPopup({
+            items: {
+                type: 'inline',
+                src: `<div id="ajax-content" class="example-popup"><div class="flexslider">
+                        <ul class="slides">
+                            <li>
+                            <img src="slide1.jpg" />
+                            </li>
+                            <li>
+                            <img src="slide2.jpg" />
+                            </li>
+                            <li>
+                            <img src="slide3.jpg" />
+                            </li>
+                            <li>
+                            <img src="slide4.jpg" />
+                            </li>
+                        </ul>
+                    </div></div>
+                    <script>
+                    require(['jquery', 'flexslider'], function($){
+                        $('.flexslider').flexslider({
+                            animation: 'slide'
+                        });
+                    });
+                    <`+`/script>`,
+                closeOnBgClick: false,
+            }
+        });
+
+    });
+</script>
+

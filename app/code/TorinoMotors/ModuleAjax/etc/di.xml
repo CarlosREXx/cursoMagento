@@ -58,4 +58,7 @@
         <plugin name="account" type="\TorinoMotors\ModuleAjax\Controller\Plugin\Account" sortOrder="1"/>
     </type> -->
     <preference for="Magento\Customer\Controller\Plugin\Account" type="\TorinoMotors\ModuleAjax\Controller\Plugin\Account" />
+    <type name='TorinoMotors\ModuleAjax\Ui\DataSource\NamesProvider'>
+        <plugin name='Provider_Plugin' type='TorinoMotors\ModuleAjax\Ui\DataSource\Plugin\Provider' sortOrder='10' disabled='false'  />
+    </type>
 </config>

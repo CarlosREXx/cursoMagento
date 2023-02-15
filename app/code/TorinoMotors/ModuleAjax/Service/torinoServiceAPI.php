@@ -2,18 +2,11 @@
 
 namespace TorinoMotors\ModuleAjax\Service;
 
-class torinoServiceAPI
+class torinoServiceAPI extends requestGuzzleHttp
 {
     protected $apiTokenPath = "rest/V1/integration/admin/token";
     protected $username = "rzamudio";
     private $password = "Password01";
-
-    public function __construct()
-    {
-        $this->apiTokenPath;
-        $this->username;
-        $this->password;
-    }
 
     public function getToken()
     { 
@@ -40,28 +33,27 @@ class torinoServiceAPI
     }
 
     public function getDataTorino(){
-        $productUrl = "http://torinomotors.mx/rest/V1/products?searchCriteria[page_size]=1000";
-        $ch = curl_init($productUrl);
-        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-            "Content-Type: application/json",
-            "Authorization: Bearer " .  $this->getToken()
+        $credenciales = [
+            'username' => 'rzamudio',
+            'password' => 'Password01'
+        ];
+        $this->setTokenUrl('http://torinomotors.mx/rest/V1/integration/admin/token');
+        $this->setCredentials($credenciales, 'json');
+        $this->setHeaders(array(
+            'Content-Type: application/json',
+            'Content-Length: ' . strlen(json_encode($credenciales))
         ));
-        $productsList = curl_exec($ch);
-        $err = curl_error($ch);
-        $products = json_decode($productsList, JSON_OBJECT_AS_ARRAY);
-
-        // foreach($products["items"] as $product){
-        //     if ($product["extension_attributes"]["category_links"][0]["category_id"] == "5"){
-        //         $product[] = "<br>";
-        //         $data[] = $product;
-        //     }
-        // }
+        $this->setToken();
+        $this->setUri('http://torinomotors.mx/rest/V1/');
+        $this->setEndpoint('products?searchCriteria[page_size]=1000');
+        $response = $this->doRequest('GET', '');
+        $data = $response->getBody();
+        $products = json_decode($data, JSON_OBJECT_AS_ARRAY);
         return $products["items"];
     }
 
     public function getDataMotos($categoryId = null, $categoryId2 = null){
+        //$productsJson = json_decode($this->getDataTorino(), JSON_OBJECT_AS_ARRAY);
         $products = $this->getDataTorino();
         foreach($products as $product => &$item){
             if($item["status"] == 1){

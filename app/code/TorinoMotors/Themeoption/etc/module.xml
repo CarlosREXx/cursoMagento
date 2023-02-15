@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <module name="TorinoMotors_Themeoption" setup_version="1.0.2" />
+    <!-- <sequence>
+        <module name="Dva_Core" />
+        <module name="Dva_EmailProtection" />
+        <module name="Dva_ExtendedElements" />
+    </sequence> -->
+</config>
